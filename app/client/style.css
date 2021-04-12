@@ -10,3 +10,23 @@
   font-size: 30px;
   font-weight: bold;
 }
+.landing-background {
+  height: 750px;
+  background: url('https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/hawaii-hall-quad-side-1024x597.jpg')
+    no-repeat center center;
+  background-size: cover;
+}
+/*
+.landing-background::before {
+  content: "";
+  position: absolute;
+  top: 175px;
+  right: 0px;
+  bottom: 15px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.25);
+}
+ */
+.top {
+
+}
