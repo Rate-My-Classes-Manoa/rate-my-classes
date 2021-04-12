@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Image, Label, Message, Popup, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -39,14 +39,32 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-      <Container id="signup-page">
+      <Container id="signup-page" fluid>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
+          <Grid.Column textAlign="center">
+            <Header as="h2" textAlign="center" color="orange">
               Register your account
             </Header>
             <Form onSubmit={this.submit}>
-              <Segment stacked>
+              <Segment stacked size="big" color="yellow">
+                <Form.Group inline>
+                  <Form.Input
+                    label="First Name"
+                    id="signup-first-name"
+                    name="firstname"
+                    type="text"
+                    placeholder="First Name"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    label="Last Name"
+                    id="signup-last-name"
+                    name="lastname"
+                    type="text"
+                    placeholder="Last Name"
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
                 <Form.Input
                   label="Email"
                   id="signup-form-email"
@@ -67,12 +85,23 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button id="signup-form-submit" content="Submit"/>
+                <Form.Input
+                  label="Confirm Password"
+                  id="signup-form-cpassword"
+                  icon="lock"
+                  iconPosition="left"
+                  name="cpassword"
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={this.handleChange}
+                />
+                <Form.Button id="signup-form-submit" color="red" size="large" fluid content="Submit"/>
+                <Message color="teal">
+                  <Message.Header> Already have an account?</Message.Header> <br />
+                  <Link to="/signin"><Label color="teal" size="big" circular>Login</Label></Link>
+                </Message>
               </Segment>
             </Form>
-            <Message>
-              Already have an account? Login <Link to="/signin">here</Link>
-            </Message>
             {this.state.error === '' ? (
               ''
             ) : (

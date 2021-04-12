@@ -16,6 +16,9 @@
     no-repeat center center;
   background-size: cover;
 }
+ #signup-page {
+     background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+ }
 /*
 .landing-background::before {
   content: "";
