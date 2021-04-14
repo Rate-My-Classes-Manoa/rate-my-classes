@@ -15,7 +15,7 @@ class TheFooter extends React.Component {
               &nbsp; <Link to={'/dev-team'}>Dev Team</Link> &nbsp; |
               &nbsp; <a href={'https://manoa.hawaii.edu'}>University of Hawaii at Manoa</a><br/>
               <div >
-                <Image className={'centered logo'} size='medium' src={'/images/logo.png'} alt={'the logo'}/>
+                <Image className={'centered footerLogo'} size='medium' src={'/images/logo.png'} alt={'the logo'}/>
               </div>
             </div>
           </div>

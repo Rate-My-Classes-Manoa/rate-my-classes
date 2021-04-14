@@ -3,7 +3,7 @@
   color: ivory;
 }
 
-.logo {
+.footerLogo {
   padding-top: 20px;
   padding-bottom: 10px;
   color: ivory;
@@ -32,11 +32,12 @@
   text-align: center;
 }
 
-.hide {
+.devTeamHide {
   display: none;
+  text-align: left;
 }
 
-.datitle {
+.devTeamTitle {
   background-color: rgba(0,0,0, 0.5);
   font-weight: bold;
   border: 3px solid #f1f1f1;
