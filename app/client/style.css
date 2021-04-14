@@ -5,17 +5,51 @@
 
 .logo {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   color: ivory;
   font-size: 30px;
   font-weight: bold;
 }
+
+.devTeamBackground {
+  background-image:  url("https://upload.wikimedia.org/wikipedia/commons/7/73/Team-3373638_1920.jpg");
+  background-size: cover;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.devTeamBody {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.datitle {
+  background-color: rgba(0,0,0, 0.5);
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  padding: 20px;
+}
+
 .landing-background {
   height: 750px;
   background: url('https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/hawaii-hall-quad-side-1024x597.jpg')
     no-repeat center center;
   background-size: cover;
 }
+
  #signup-page {
      background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
  }
