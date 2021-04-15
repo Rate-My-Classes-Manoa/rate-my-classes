@@ -38,12 +38,15 @@ class EventsPage extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
-        <Header as="h2" textAlign="center">University of Hawaii at Manoa Events</Header>
-        <Card.Group centered>
-          {this.events.map((event, index) => <Events key={index} events={event}/>)}
-        </Card.Group>
-      </Container>
+      <div>
+        <div className={'eventsPageBackground'}/>
+        <Container className={'eventsPageBody'}>
+          <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
+          <Card.Group centered>
+            {this.events.map((event, index) => <Events key={index} events={event}/>)}
+          </Card.Group>
+        </Container>
+      </div>
     );
   }
 }
