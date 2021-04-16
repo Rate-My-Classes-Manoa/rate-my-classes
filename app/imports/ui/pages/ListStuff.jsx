@@ -8,7 +8,6 @@ import StuffItem from '../components/StuffItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
-
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -29,7 +28,7 @@ class ListStuff extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+            {this.props.stuffs.map((stuff) => <StuffItem key={stuff} stuff={stuff} />)}
           </Table.Body>
         </Table>
       </Container>
