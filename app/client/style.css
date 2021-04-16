@@ -73,6 +73,9 @@
     width: 800px;
     text-align: center;
 }
+.theHiddenClasses {
+  display: none;
+}
 /*
 .landing-background::before {
   content: "";
