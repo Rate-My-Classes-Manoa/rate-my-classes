@@ -44,6 +44,30 @@
   padding: 20px;
 }
 
+.jobsHeaderFooter {
+  background-color: #454545;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.jobsBody {
+  background-color: #F3F2EE;
+  margin-top: 20px !important;
+  margin-right: 5px !important;
+  margin-left: 5px !important;
+  margin-bottom: 20px !important;
+  padding: 5px !important;
+}
+
+.jobsRight {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .landing-background {
   height: 750px;
   background: url('https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/hawaii-hall-quad-side-1024x597.jpg')
