@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Image, Icon, Button, Header, Divider, Card } from 'semantic-ui-react';
+import { Grid, Image, Icon, Button, Header, Divider, Card, Message } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -77,7 +77,18 @@ class UserDisplay extends React.Component {
             {/* eslint-disable-next-line react/prop-types,react/jsx-key,react/no-unescaped-entities */}
             {/* <div>{_.mapObject(reviews, (val, key) => <div><Button>{key}</Button></div>)})}</div> */}
             {/* eslint-disable-next-line react/jsx-no-undef */}
-            <div><Usersub key={reviews} reviews={reviews} /></div>
+            <div>
+              {/* {_.mapObject(reviews, function (val, key) { return (<Button>{key}</Button>); })} */}
+              {/* {_.map(_.values(reviews), val => <Message>{val}</Message>) } */}
+              {_.map(_.keys(reviews), (key) => <div key="key" ><span><Button color='blue'>{key}</Button>
+                <Message size='large' color='yellow'>{reviews[key]}</Message></span>
+              </div>)}
+              {/* eslint-disable-next-line no-unused-vars */}
+              {/* {_.map(_.keys(reviews), (item) => <div><Button key={item} inverted>{item}</Button> */}
+              {/*  /!* eslint-disable-next-line react/prop-types *!/ */}
+              {/*  /!*<Message key={key}>{reviews.key}</Message>*!/ */}
+              {/* </div>)} */}
+            </div>
           </Grid.Column>
           <Grid.Column textAlign='center'>
             <Icon name="user secret" size="huge"/>
@@ -93,17 +104,17 @@ class UserDisplay extends React.Component {
   }
 }
 
-class Usersub extends React.Component {
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const obj = this.props.reviews;
-    console.log(obj);
-    return (
-        // eslint-disable-next-line no-unused-vars
-      <div>{_.mapObject(obj, (key, value) => <Button>{key}</Button>)}</div>
-    );
-  }
-}
+// class Usersub extends React.Component {
+//   render() {
+//     // eslint-disable-next-line react/prop-types
+//     const obj = this.props.reviews;
+//     console.log(obj);
+//     return (
+//         // eslint-disable-next-line no-unused-vars
+//       <div>{_.mapObject(obj, (key, value) => <Button>{key}</Button>)}</div>
+//     );
+//   }
+// }
 
 // Require an array of Stuff documents in the props.
 UserProfile.propTypes = {
