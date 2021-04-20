@@ -14,5 +14,38 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ]
+  ],
+
+  "defaultProfiles":[
+    {
+      "firstName": "John",
+      "lastName": "Foo",
+      "owner" : "john@foo.com",
+      "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time.",
+      "classes": [
+        "ICS-311", "ICS314", "MATH-307"
+      ],
+      "reviews": {
+        "ICS-311": "I'm working on making a review for ICS311.",
+        "ICS-314": "I'm working on making a review for ICS314.",
+        "MATH-307": "I'm working on making a review for MATH307."
+      }
+    },
+    {
+      "firstName": "Johnathan",
+      "lastName": "Foo",
+      "owner" : "johnathan@foo.com",
+      "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time.",
+      "classes": [
+        "ICS-311", "ICS314", "MATH-307"
+      ],
+      "reviews": {
+        "ICS-311": "I'm working on making a review for ICS311.",
+        "ICS-314": "I'm working on making a review for ICS314.",
+        "MATH-307": "I'm working on making a review for MATH307."
+      }
+    }
+    ]
+
 }
+
