@@ -20,6 +20,9 @@
     {
       "firstName": "John",
       "lastName": "Foo",
+      "imageLink": "https://www.businessinsider.in/photo/77825377/Lionel-Messi-leaving-Barcelona-would-be-the-biggest-and-most-shocking-transfer-in-football-history-but-it-would-make-perfect-sense-for-everyone.jpg?imgsize=330710",
+      "city": "Honolulu",
+      "state": "Hawaii",
       "owner" : "john@foo.com",
       "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time.",
       "classes": [
@@ -34,6 +37,9 @@
     {
       "firstName": "Johnathan",
       "lastName": "Foo",
+      "imageLink": "https://www.businessinsider.in/photo/77825377/Lionel-Messi-leaving-Barcelona-would-be-the-biggest-and-most-shocking-transfer-in-football-history-but-it-would-make-perfect-sense-for-everyone.jpg?imgsize=330710",
+      "city": "Kapolei",
+      "state": "Hawaii",
       "owner" : "johnathan@foo.com",
       "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time.",
       "classes": [
