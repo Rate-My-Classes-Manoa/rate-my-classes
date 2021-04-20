@@ -61,6 +61,7 @@ class ProfessorReview extends React.Component {
 ProfessorReview.propTypes = {
   events: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  review: PropTypes.array.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
