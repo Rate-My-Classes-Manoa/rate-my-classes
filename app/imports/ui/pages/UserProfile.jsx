@@ -67,7 +67,6 @@ class UserDisplay extends React.Component {
             {/*    <Message size='large' color='yellow'>{reviews[key]}</Message></span> */}
             {/*  <br /></Message>)} */}
             {/* </div> */}
-
             <Message error header="Add reviews here"
               list={["Reviews that are displayed here are awaiting the admin's approval"]}
               centered />
