@@ -26,6 +26,7 @@ class UserDisplay extends React.Component {
 
     // eslint-disable-next-line react/prop-types
     const { firstName, lastName, classes, reviews } = this.props.profileData;
+    console.log(reviews);
     return (
       <div className="userHP">
         <Grid id='UserProfile-page' verticalAlign='middle' textAlign='center'>

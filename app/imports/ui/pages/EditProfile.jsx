@@ -16,7 +16,7 @@ class EditProfile extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id } = data;
+    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id} = data;
     Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner, classes } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));

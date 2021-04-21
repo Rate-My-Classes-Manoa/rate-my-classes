@@ -22,7 +22,9 @@ class ProfilesCollection {
       bio: String,
       classes: SimpleSchema.oneOf(String, Array),
       'classes.$': { type: String },
-      // reviews: SimpleSchema.oneOf(String, Object),
+      reviews: SimpleSchema.oneOf(Array, Object, String),
+      'reviews.$': { type: Object },
+      // classes: Array,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

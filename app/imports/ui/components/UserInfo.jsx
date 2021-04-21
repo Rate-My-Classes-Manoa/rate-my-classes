@@ -7,7 +7,7 @@ import { withRouter, Link } from 'react-router-dom';
 class UserInfo extends React.Component {
   render() {
     // eslint-disable-next-line react/prop-types
-    const { firstName, lastName, imageLink, owner, bio, city, state, _id } = this.props.data;
+    const { firstName, lastName, imageLink, owner, bio, city, state, _id, reviews } = this.props.data;
     const leftGrid = { marginLeft: '20px' };
     return (
       <Grid.Column textAlign='center' floated="left" width={5} style={leftGrid}>
