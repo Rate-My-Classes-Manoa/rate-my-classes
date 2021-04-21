@@ -20,6 +20,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.userHP {
+    background-image: url("https://images.pexels.com/photos/316466/pexels-photo-316466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .devTeamBody {
   position: absolute;

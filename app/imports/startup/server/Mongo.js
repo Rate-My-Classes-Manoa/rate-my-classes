@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
 
@@ -42,5 +43,19 @@ if (Stuffs.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.map(data => addData(data));
+  }
+}
+
+// Initialize the database with a default profile document.
+function addProfile(profile) {
+  console.log(`  Adding: ${profile.firstName} ${profile.lastName}`);
+  Profiles.collection.insert(profile);
+}
+
+// Initialize the ProfilesCollection if empty.
+if (Profiles.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfiles) {
+    console.log('Creating default profiles.');
+    Meteor.settings.defaultProfiles.map(profile => addProfile(profile));
   }
 }
