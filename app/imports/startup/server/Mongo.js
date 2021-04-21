@@ -12,12 +12,12 @@ function addData(data) {
 }
 
 function addClassReviews(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding review for ${data.className} by (${data.owner})`);
   ClassReviews.collection.insert(data);
 }
 
 function addProfessorReviews(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding review for ${data.professorName} by (${data.owner})`);
   ProfessorReviews.collection.insert(data);
 }
 
