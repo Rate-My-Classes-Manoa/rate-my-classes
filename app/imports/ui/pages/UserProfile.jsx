@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Icon, Button, Label, Header, Divider, Message, Rating } from 'semantic-ui-react';
+import { Grid, Icon, Button, Message, Header, Divider, Loader, Rating, Advertisement } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -12,8 +12,11 @@ import UserInfo from '../components/UserInfo';
 class UserProfile extends React.Component {
   render() {
     const test = this.props.profiles;
+    const exist = (test.length !== 0);
+    console.log(exist);
     return (
-      test.map((stuff) => <UserDisplay key= { stuff._id } profileData= {stuff} />)
+      exist ? test.map((stuff) => <UserDisplay key= { stuff._id } profileData= {stuff} />) :
+        <Loader active>Getting data</Loader>
     );
   }
 }
@@ -25,8 +28,7 @@ class UserDisplay extends React.Component {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
     // eslint-disable-next-line react/prop-types
-    const { firstName, lastName, classes, reviews } = this.props.profileData;
-    console.log(reviews);
+    const { firstName, lastName, classes } = this.props.profileData;
     return (
       <div className="userHP">
         <Grid id='UserProfile-page' verticalAlign='middle' textAlign='center'>
@@ -49,15 +51,26 @@ class UserDisplay extends React.Component {
             </Header>
             {/* eslint-disable-next-line react/prop-types,react/jsx-key */}
             {classes.map((item) => <div key={item}><Button fluid key={item} size='big' content={item} style={{ color: `#${randomColor}` }} /> <br /></div>)}
+
+            <Divider horizontal fitted>-----------------------------</Divider>
+            <Header as='h1' color='brown'>Posted Reviews</Header>
+            <Message error header="Add reviews here"
+              list={['Reviews are displayed here after insertion']}
+              centered />
+
             <Divider horizontal fitted>-----------------------------</Divider>
 
             <Header as='h1' color='brown'>Pending Reviews</Header>
             {/* eslint-disable-next-line react/jsx-no-undef */}
-            <div>
-              {_.map(_.keys(reviews), (key) => <Message key={key}><span><Label pointing='below' size='big' style={{ color: `#${randomColor}` }}>{key}</Label>
-                <Message size='large' color='yellow'>{reviews[key]}</Message></span>
-              <br /></Message>)}
-            </div>
+            {/* <div> */}
+            {/*  {_.map(_.keys(reviews), (key) => <Message key={key}><span><Label pointing='below' size='big' style={{ color: `#${randomColor}` }}>{key}</Label> */}
+            {/*    <Message size='large' color='yellow'>{reviews[key]}</Message></span> */}
+            {/*  <br /></Message>)} */}
+            {/* </div> */}
+
+            <Message error header="Add reviews here"
+              list={["Reviews that are displayed here are awaiting the admin's approval"]}
+              centered />
           </Grid.Column>
           <Grid.Column textAlign='center'>
             <Icon name="user secret" size="huge"/>
@@ -99,8 +112,9 @@ UserDisplay.propTypes = {
     _id: PropTypes.string,
     bio: PropTypes.string,
     classes: PropTypes.array,
-    reviews: PropTypes.object,
+    // reviews: PropTypes.object,
   }).isRequired,
+  exist: PropTypes.bool.isRequired,
   // stuff: PropTypes.Object,
   // key: PropTypes.String,
 };
