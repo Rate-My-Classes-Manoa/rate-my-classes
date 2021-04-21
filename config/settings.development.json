@@ -51,7 +51,20 @@
         "MATH-307": "I'm working on making a review for MATH307."
       }
     }
-    ]
+    ],
 
+  "defaultClassReviews": [
+    { "createdAt": "04/20/2021", "className": "ICS 311", "review": "Tough Class!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "className": "ICS 314", "review": "Great Class!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "className": "ICS 212", "review": "Interesting Class!", "owner": "admin@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "className": "ICS 321", "review": "Good Class!", "owner": "admin@foo.com", "approved": true }
+  ],
+
+  "defaultProfessorReviews": [
+    { "createdAt": "04/20/2021", "professorName": "Peter Sadowski", "review": "Awesome Professor!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "professorName": "Philip Johnson", "review": "Great Professor!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "professorName": "Ravi Narayan", "review": "Interesting Professor!", "owner": "admin@foo.com", "approved": true },
+    { "createdAt": "04/20/2021", "professorName": "Mahdi Belcaid", "review": "Good Professor!", "owner": "admin@foo.com", "approved": true }
+  ]
 }
 

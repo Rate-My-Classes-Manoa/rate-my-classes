@@ -19,6 +19,7 @@ import Signout from '../pages/Signout';
 import DevTeam from '../pages/DevTeam';
 import EventsPage from '../pages/EventsPage';
 import UserProfile from '../pages/UserProfile';
+import Careers from '../pages/Careers';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <Route path="/dev-team" component={DevTeam}/>
+            <Route path="/careers" component={Careers}/>
             <ProtectedRoute path="/event" component={EventsPage}/>
             <ProtectedRoute path="/profile" component={UserProfile}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
