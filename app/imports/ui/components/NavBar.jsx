@@ -15,22 +15,12 @@ class NavBar extends React.Component {
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>Rate My Classes - Manoa</Header>
         </Menu.Item>
-<<<<<<< HEAD
         <Menu.Item as={NavLink} activeClassName="active" exact to="/event" key="event">Community Events</Menu.Item>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key="list">Class Reviews</Menu.Item>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/professor" key="professor">Professor Reviews</Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Add Event</Menu.Item>
         {this.props.currentUser ? (
           [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Review</Menu.Item>]
-=======
-        {this.props.currentUser ? ([
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/event" key="event">Community Events</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Class Reviews</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Professor Reviews</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Add Event</Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Review</Menu.Item>,
-        ]
->>>>>>> 79ca6f5dafad9d684b7cfe886aff019411379979
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>

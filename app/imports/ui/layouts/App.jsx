@@ -16,13 +16,9 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import DevTeam from '../pages/DevTeam';
 import EventsPage from '../pages/EventsPage';
-<<<<<<< HEAD
 import ProfessorReview from '../pages/ProfessorReview';
 import ListStuff from '../pages/ListStuff';
-
-=======
 import Careers from '../pages/Careers';
->>>>>>> 79ca6f5dafad9d684b7cfe886aff019411379979
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
