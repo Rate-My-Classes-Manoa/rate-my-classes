@@ -32,17 +32,17 @@ class ProfessorReview extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <div>
-          <div/>
-          <Container>
-            <Header as="h2" textAlign="center" inverted>University of Hawaii Professors</Header>
-            <Card.Group centered>
-              {this.professors.map((professor ,index)=> <Professor
-                  key={index}
-                  professor={professor}/>)}
-            </Card.Group>
-          </Container>
-        </div>
+      <div>
+        <div/>
+        <Container>
+          <Header as="h2" textAlign="center" inverted>University of Hawaii Professors</Header>
+          <Card.Group centered>
+            {this.professors.map((professor, index) => <Professor
+              key={index}
+              professor={professor}/>)}
+          </Card.Group>
+        </Container>
+      </div>
     );
   }
 }

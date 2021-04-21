@@ -7,17 +7,17 @@ import { withRouter } from 'react-router-dom';
 export class Professor extends React.Component {
   render() {
     return (
-        <div>
-          <Card>
-            <Image src={this.props.professor.image} wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>{this.props.professor.name}</Card.Header>
-              <Card.Meta>
-                <span>{this.props.professor.address}</span>
-              </Card.Meta>
-            </Card.Content>
-          </Card>
-        </div>
+      <div>
+        <Card>
+          <Image src={this.props.professor.image} wrapped ui={false} />
+          <Card.Content>
+            <Card.Header>{this.props.professor.name}</Card.Header>
+            <Card.Meta>
+              <span>{this.props.professor.address}</span>
+            </Card.Meta>
+          </Card.Content>
+        </Card>
+      </div>
     );
   }
 }

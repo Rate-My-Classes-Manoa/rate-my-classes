@@ -7,26 +7,26 @@ import { withRouter } from 'react-router-dom';
 class ClassItem extends React.Component {
   render() {
     return (
-        <Container>
-          <Header as="h3" textAlign="center">{this.props.classItem.className}</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Date</Table.HeaderCell>
-                <Table.HeaderCell>Review</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>{this.props.classItem.name}</Table.Cell>
-                <Table.Cell>{this.props.classItem.date}</Table.Cell>
-                <Table.Cell>{this.props.classItem.review}</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
-          <br/>
-        </Container>
+      <Container>
+        <Header as="h3" textAlign="center">{this.props.classItem.className}</Header>
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Date</Table.HeaderCell>
+              <Table.HeaderCell>Review</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>{this.props.classItem.name}</Table.Cell>
+              <Table.Cell>{this.props.classItem.date}</Table.Cell>
+              <Table.Cell>{this.props.classItem.review}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+        <br/>
+      </Container>
     );
   }
 }

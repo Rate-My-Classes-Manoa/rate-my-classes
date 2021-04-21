@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -11,13 +11,13 @@ class ClassReview extends React.Component {
 
   classes = [
     {
-      name:'John Doe', date: '4/18/2021', className: 'ICS 311', review: 'This class was very hard and not fun.',
+      name: 'John Doe', date: '4/18/2021', className: 'ICS 311', review: 'This class was very hard and not fun.',
     },
     {
-      name:'Tommy Ho', date: '4/19/2021', className: 'ICS 312', review: 'This class was very hard and not fun.',
+      name: 'Tommy Ho', date: '4/19/2021', className: 'ICS 312', review: 'This class was very hard and not fun.',
     },
     {
-      name:'Linda Ava', date: '4/20/2021', className: 'ICS 212', review: 'This class was very hard and not fun.',
+      name: 'Linda Ava', date: '4/20/2021', className: 'ICS 212', review: 'This class was very hard and not fun.',
     },
   ];
 
@@ -29,10 +29,10 @@ class ClassReview extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">Class Reviews</Header>
-          {this.classes.map((classItem, index) => <ClassItem key={index} classItem={classItem} />)}
-        </Container>
+      <Container>
+        <Header as="h2" textAlign="center">Class Reviews</Header>
+        {this.classes.map((classItem, index) => <ClassItem key={index} classItem={classItem} />)}
+      </Container>
     );
   }
 }
