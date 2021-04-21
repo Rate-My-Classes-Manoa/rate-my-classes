@@ -1,34 +1,35 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+  className: String,
+  review: String,
+  rating: {
+    type: Number,
+    allowedValues: [1, 2, 3, 4, 5],
+    defaultValue: 1,
   },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class AddReview extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, quantity, condition } = data;
+    const { className, review, rating } = data;
+    const createdAt = new Date().toDateString();
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, condition, owner },
+    const approved = false;
+    ClassReviews.collection.insert({ createdAt, className, rating, review, owner, approved },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,12 +46,12 @@ class AddStuff extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
+          <Header as="h2" textAlign="center">Add Review</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
-              <NumField name='quantity' decimal={false}/>
-              <SelectField name='condition'/>
+              <TextField name='className'/>
+              <SelectField name='rating' />
+              <LongTextField name='review'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
@@ -61,4 +62,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default AddReview;
