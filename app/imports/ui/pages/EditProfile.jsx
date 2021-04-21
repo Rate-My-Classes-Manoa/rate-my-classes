@@ -44,7 +44,7 @@ class EditProfile extends React.Component {
               <SubmitField value='Submit'/>
               <ErrorsField/>
               <HiddenField name='owner' />
-              {/*<HiddenField name='reviews' />*/}
+              {/* <HiddenField name='reviews' /> */}
               <HiddenField name='classes' />
             </Segment>
           </AutoForm>
