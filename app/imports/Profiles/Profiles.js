@@ -12,20 +12,23 @@ class ProfilesCollection {
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
-    // this.schema = new SimpleSchema({
-    //   firstName: { type: String },
-    //   lastName: { type: String },
-    //   owner: String,
-    //   bio: String,
-    //   classes: SimpleSchema.oneOf(String, Array),
-    //   'classes.$': { type: String },
-    //   reviews: SimpleSchema.oneOf(String, Object),
-    // }, { tracker: Tracker });
-    // // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
-    // this.collection.attachSchema(this.schema);
+    this.schema = new SimpleSchema({
+      firstName: { type: String },
+      lastName: { type: String },
+      city: { type: String },
+      state: { type: String },
+      imageLink: { type: String },
+      owner: String,
+      bio: String,
+      classes: SimpleSchema.oneOf(String, Array),
+      'classes.$': { type: String },
+      // reviews: SimpleSchema.oneOf(String, Object),
+    }, { tracker: Tracker });
+    // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
+    this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
-    console.log(this.userPublicationName);
+    // console.log(this.userPublicationName);
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }

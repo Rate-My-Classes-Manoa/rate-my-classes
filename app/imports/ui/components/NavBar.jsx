@@ -12,13 +12,18 @@ class NavBar extends React.Component {
     const menuStyle = { marginBottom: '10px', backgroundColor: '#024731' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'>Rate My Classes - Manoa</Header>
-        </Menu.Item>
+        {this.props.currentUser === '' ? (
+          <Menu.Item as={NavLink} activeClassName="" exact to="/">
+            <Header inverted as='h1'>Rate My Classes - Manoa</Header>
+          </Menu.Item>
+        ) :
+          <Menu.Item as={NavLink} activeClassName="" exact to="/profile">
+            <Header inverted as='h1'>Rate My Classes - Manoa</Header>
+          </Menu.Item> }
         <Menu.Item as={NavLink} activeClassName="active" exact to="/event" key="event">Community Events</Menu.Item>
-        {/*<Menu.Item as={NavLink} activeClassName="" exact to="" key="">Class Reviews</Menu.Item>*/}
-        {/*<Menu.Item as={NavLink} activeClassName="" exact to="" key="">Professor Reviews</Menu.Item>*/}
-        {/*<Menu.Item as={NavLink} activeClassName="" exact to="" key="">Add Event</Menu.Item>*/}
+         <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Class Reviews</Menu.Item>
+         <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Professor Reviews</Menu.Item>
+         <Menu.Item as={NavLink} activeClassName="" exact to="" key="">Add Event</Menu.Item>
         {this.props.currentUser ? (
           [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Review</Menu.Item>]
         ) : ''}

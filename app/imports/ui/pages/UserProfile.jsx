@@ -1,17 +1,19 @@
 // eslint-disable-next-line max-classes-per-file
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Image, Icon, Button, Label, Header, Divider, Card, Message, Rating } from 'semantic-ui-react';
+import { Grid, Icon, Button, Label, Header, Divider, Message, Rating } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+// import { Link } from 'react-router-dom';
 import { Profiles } from '../../Profiles/Profiles';
+import UserInfo from '../components/UserInfo';
 /** A simple static component to render some text for the UserProfile page. */
 class UserProfile extends React.Component {
   render() {
     const test = this.props.profiles;
     return (
-      test.map((stuff) => <UserDisplay key= { stuff._id } stuff= {stuff} />)
+      test.map((stuff) => <UserDisplay key= { stuff._id } profileData= {stuff} />)
     );
   }
 }
@@ -19,16 +21,14 @@ class UserProfile extends React.Component {
 class UserDisplay extends React.Component {
   render() {
     const style = { marginTop: '20px' };
-    const leftGrid = { marginLeft: '20px' };
+    // const leftGrid = { marginLeft: '20px' };
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
     // eslint-disable-next-line react/prop-types
-    const { firstName, lastName, imageLink, owner, bio, classes, reviews, city, state } = this.props.stuff;
-    console.log(imageLink);
+    const { firstName, lastName, classes, reviews } = this.props.profileData;
     return (
       <div className="userHP">
         <Grid id='UserProfile-page' verticalAlign='middle' textAlign='center'>
-
           <Grid.Column width={4}>
             <Rating maxRating={5} defaultRating={4} icon='star' size='massive' />
           </Grid.Column>
@@ -41,29 +41,7 @@ class UserDisplay extends React.Component {
         </Grid>
         <div className="UserProfile-background"/>
         <Grid centered stackable columns={3} style={style}>
-          <Grid.Column textAlign='center' floated="left" width={5} style={leftGrid}>
-            <Card fluid>
-              {/* eslint-disable-next-line max-len */}
-              <Image
-                src={imageLink}
-                wrapped circular ui={false}/>
-              <Card.Content>
-                <Card.Header color='red'>{firstName} {lastName}</Card.Header>
-                <Card.Meta>
-                  <span>{owner}</span>
-                </Card.Meta>
-                <Card.Description>
-                  {bio}
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <a>
-                  <Icon name='location arrow'/>
-                  {`${city}, ${state}`}
-                </a>
-              </Card.Content>
-            </Card>
-          </Grid.Column>
+          <UserInfo data={this.props.profileData} />
           <Grid.Column textAlign='center' width={5} floated='left'>
             <Header as='h1' color="brown">
              Classes Taken <Icon name="student" size="huge"/>
@@ -110,7 +88,7 @@ UserProfile.propTypes = {
 };
 
 UserDisplay.propTypes = {
-  stuff: PropTypes.shape({
+  profileData: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     imageLink: PropTypes.string,
