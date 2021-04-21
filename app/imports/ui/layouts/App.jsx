@@ -17,8 +17,8 @@ import Signout from '../pages/Signout';
 import DevTeam from '../pages/DevTeam';
 import EventsPage from '../pages/EventsPage';
 import ProfessorReview from '../pages/ProfessorReview';
-import ListStuff from '../pages/ListStuff';
 import Careers from '../pages/Careers';
+import ClassReview from '../pages/ClassReview';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -35,7 +35,7 @@ class App extends React.Component {
             <Route path="/dev-team" component={DevTeam}/>
             <Route path="/careers" component={Careers}/>
             <ProtectedRoute path="/event" component={EventsPage}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
+            <ProtectedRoute path="/list" component={ClassReview}/>
             <ProtectedRoute path="/professor" component={ProfessorReview}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
