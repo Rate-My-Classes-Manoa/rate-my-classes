@@ -21,7 +21,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class AddReview extends React.Component {
+class AddClassReview extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -46,7 +46,7 @@ class AddReview extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Review</Header>
+          <Header as="h2" textAlign="center">Add Class Review</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='className'/>
@@ -62,4 +62,4 @@ class AddReview extends React.Component {
   }
 }
 
-export default AddReview;
+export default AddClassReview;

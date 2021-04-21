@@ -18,7 +18,7 @@ import EventsPage from '../pages/EventsPage';
 import ProfessorReview from '../pages/ProfessorReview';
 import Careers from '../pages/Careers';
 import ClassReview from '../pages/ClassReview';
-import AddReview from '../pages/AddReview';
+import AddClassReview from '../pages/AddClassReview';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -37,7 +37,7 @@ class App extends React.Component {
             <ProtectedRoute path="/event" component={EventsPage}/>
             <ProtectedRoute path="/list" component={ClassReview}/>
             <ProtectedRoute path="/professor" component={ProfessorReview}/>
-            <ProtectedRoute path="/add" component={AddReview}/>
+            <ProtectedRoute path="/add-class" component={AddClassReview}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
