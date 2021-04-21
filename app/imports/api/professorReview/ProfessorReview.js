@@ -18,6 +18,11 @@ class ProfessorReviewsCollection {
       review: String,
       owner: String,
       approved: Boolean,
+      rating: {
+        type: Number,
+        allowedValues: [1, 2, 3, 4, 5],
+        defaultValue: 1,
+      },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
