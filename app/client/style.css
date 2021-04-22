@@ -20,6 +20,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.userHP {
+    background-image: url("https://i.pinimg.com/originals/3a/3b/7b/3a3b7b936e3ff87016de28ea865cbbb6.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .devTeamBody {
   position: absolute;
