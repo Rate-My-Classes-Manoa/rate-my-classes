@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
-import ClassItem from '../components/Class';
+import ClassItem from '../components/ClassItem';
+import { ClassReviews } from '../../api/classReview/ClassReview';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ClassReview extends React.Component {
@@ -31,7 +31,19 @@ class ClassReview extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center">Class Reviews</Header>
-        {this.classes.map((classItem, index) => <ClassItem key={index} classItem={classItem} />)}
+        <Table celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Date</Table.HeaderCell>
+              <Table.HeaderCell>User</Table.HeaderCell>
+              <Table.HeaderCell>Class</Table.HeaderCell>
+              <Table.HeaderCell>Review</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {this.props.reviews.map((review) => <ClassItem key={review._id} review={review} />)}
+          </Table.Body>
+        </Table>
       </Container>
     );
   }
@@ -39,20 +51,20 @@ class ClassReview extends React.Component {
 
 // Require an array of Stuff documents in the props.
 ClassReview.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  const subscription = Meteor.subscribe(ClassReviews.generalPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const stuffs = Stuffs.collection.find({}).fetch();
+  const reviews = ClassReviews.collection.find({}).fetch();
   return {
-    stuffs,
+    reviews,
     ready,
   };
 })(ClassReview);
