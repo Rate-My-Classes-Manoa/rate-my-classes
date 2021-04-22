@@ -3,6 +3,7 @@ import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
+import { ClassReviewsForUserpage } from '../../api/classReview/ClassReviewForUserpage';
 
 /* eslint-disable no-console */
 
@@ -17,6 +18,12 @@ function addClassReviews(data) {
   ClassReviews.collection.insert(data);
 }
 
+function addClassReviewsForUserpage(data) {
+  console.log(`  Adding review for ${data.className} by (${data.owner})`);
+  ClassReviewsForUserpage.collection.insert(data);
+}
+
+
 function addProfessorReviews(data) {
   console.log(`  Adding review for ${data.professorName} by (${data.owner})`);
   ProfessorReviews.collection.insert(data);
@@ -30,6 +37,12 @@ if (ClassReviews.collection.find().count() === 0) {
   }
 }
 
+if (ClassReviewsForUserpage.collection.find().count() === 0) {
+  if (Meteor.settings.defaultClassReviews) {
+    console.log('Creating default class reviews for user page.');
+    Meteor.settings.defaultClassReviews.map(data => addClassReviewsForUserpage(data));
+  }
+}
 // Initialize the ProfessorReviewsCollection if empty.
 if (ProfessorReviews.collection.find().count() === 0) {
   if (Meteor.settings.defaultClassReviews) {

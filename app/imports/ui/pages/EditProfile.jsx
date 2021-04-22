@@ -16,10 +16,15 @@ class EditProfile extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id} = data;
+    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id } = data;
     Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner, classes } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal({
+        title: 'Congratulations',
+        text: "You've successfully updated your personal info!!",
+        icon: 'success',
+        button: "Let's GO",
+      })));
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.

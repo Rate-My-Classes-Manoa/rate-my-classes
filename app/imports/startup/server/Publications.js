@@ -31,6 +31,7 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
+
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 Meteor.publish(Profiles.userPublicationName, function () {
