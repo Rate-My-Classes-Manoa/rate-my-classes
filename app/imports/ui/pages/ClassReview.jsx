@@ -38,6 +38,7 @@ class ClassReview extends React.Component {
               <Table.HeaderCell>User</Table.HeaderCell>
               <Table.HeaderCell>Class</Table.HeaderCell>
               <Table.HeaderCell>Review</Table.HeaderCell>
+              <Table.HeaderCell>Rating</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

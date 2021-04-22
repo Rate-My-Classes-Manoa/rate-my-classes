@@ -12,6 +12,7 @@ class ClassItem extends React.Component {
         <Table.Cell>{this.props.review.owner}</Table.Cell>
         <Table.Cell>{this.props.review.className}</Table.Cell>
         <Table.Cell>{this.props.review.review}</Table.Cell>
+        <Table.Cell>{this.props.review.rating}</Table.Cell>
       </Table.Row>
     );
   }
@@ -24,6 +25,7 @@ ClassItem.propTypes = {
     owner: PropTypes.string,
     createdAt: PropTypes.string,
     review: PropTypes.string,
+    rating: PropTypes.Number,
     approved: Boolean,
     _id: PropTypes.string,
   }).isRequired,
