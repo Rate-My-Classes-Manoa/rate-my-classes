@@ -38,6 +38,7 @@ class UserDisplay extends React.Component {
     const { firstName } = this.props.profileData;
     const classesTaken = _.pluck(this.props.classesEnr, 'className');
     const classReviews = this.props.classesEnr;
+    console.log(this.props.professorReviews);
     // console.log(classReviews);
     return (
       <div className="userHP">
