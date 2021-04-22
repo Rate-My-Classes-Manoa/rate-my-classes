@@ -46,7 +46,7 @@ export default withTracker(() => {
   // Get the Stuff documents
   const events = Events.collection.find({}).fetch();
   return {
-    stuffs,
+    events,
     ready,
   };
 })(EventsPage);
