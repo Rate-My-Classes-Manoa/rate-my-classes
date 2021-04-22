@@ -3,38 +3,39 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The ClassReviewsCollection.
+ * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class ClassReviewsCollection {
+class ProfilesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ClassReviewsCollection';
+    this.name = 'ProfilesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      createdAt: String,
-      className: String,
-      review: String,
+      firstName: { type: String },
+      lastName: { type: String },
+      city: { type: String },
+      state: { type: String },
+      imageLink: { type: String },
       owner: String,
-      approved: Boolean,
-      rating: {
-        type: Number,
-        allowedValues: [1, 2, 3, 4, 5],
-        defaultValue: 1,
-      },
+      bio: String,
+      classes: SimpleSchema.oneOf(String, Array),
+      'classes.$': { type: String },
+      // reviews: Object,
+      // classes: Array,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
-    this.generalPublicationName = `${this.name}.publication`;
     this.userPublicationName = `${this.name}.publication.user`;
+    // console.log(this.userPublicationName);
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
 
 /**
- * The singleton instance of the ClassReviewsCollection.
- * @type {ClassReviewsCollection}
+ * The singleton instance of the StuffsCollection.
+ * @type {StuffsCollection}
  */
-export const ClassReviews = new ClassReviewsCollection();
+export const Profiles = new ProfilesCollection();
