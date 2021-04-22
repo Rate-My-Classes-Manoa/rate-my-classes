@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
+import { Events } from '../../api/events/Events';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -18,6 +19,14 @@ Meteor.publish(ProfessorReviews.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return ProfessorReviews.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Events.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Events.collection.find({ owner: username });
   }
   return this.ready();
 });

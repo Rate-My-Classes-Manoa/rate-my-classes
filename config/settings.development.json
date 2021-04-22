@@ -6,7 +6,7 @@
 
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme"}
   ],
 
   "defaultData": [
@@ -28,5 +28,18 @@
     { "createdAt": "Tue Apr 20 2021", "professorName": "Phillip Johnson", "rating": 5, "review": "Great Professor!", "owner": "john@foo.com", "approved": true },
     { "createdAt": "Tue Apr 20 2021", "professorName": "Ravi Narayan", "rating": 5, "review": "Interesting Professor!", "owner": "admin@foo.com", "approved": true },
     { "createdAt": "Tue Apr 20 2021", "professorName": "Mahdi Belcaid", "rating": 5, "review": "Good Professor!", "owner": "admin@foo.com", "approved": true }
+  ],
+
+  "defaultEvents": [
+    {"eventName": "SCEP Live Online: Kenny Endo and Taiko Center of the Pacific",
+    "image": "https://www.hawaii.edu/site/calendar/uploads/38685.jpg",
+    "time": "April 14",
+    "description": "A master of contemporary percussion and rhythm at the vanguard of the taiko genre Kenny Endo continues to explore new possibilities for this ancient Japanese instrument. A performer, composer, and teacher of taiko, he has received numerous awards, accolades, and a natori (a stage name in classical drumming). Kenny is a consummate artist, blending taiko with original music through collaborations with international artists."
+    },
+    {"eventName": "Meditation Session with Chinese Healing Art",
+      "image": "https://miro.medium.com/max/1096/0*MXNjDsYuSaRxjWA1.",
+      "time": "April 14",
+      "description": "Come and join us in our online meditation sessions! Relax and unwind from your busy schedule with a 15-minute meditation session! To register, please fill out this Google form below: https://forms.gle/gHvYpE75yNDSL58b6"
+    }
   ]
 }

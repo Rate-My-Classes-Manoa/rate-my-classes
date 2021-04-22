@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Events extends React.Component {
+class Event extends React.Component {
   render() {
     return (
       <Card>
-        <Image src={this.props.events.image} wrapped ui={false} />
+        <Image src={this.props.event.image} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>{this.props.events.eventName}</Card.Header>
+          <Card.Header>{this.props.event.eventName}</Card.Header>
           <Card.Meta>
-            <span className='date'>{this.props.events.time}</span>
+            <span className='date'>{this.props.event.time}</span>
           </Card.Meta>
           <Card.Description>
-            {this.props.events.description}
+            {this.props.event.description}
           </Card.Description>
         </Card.Content>
       </Card>
@@ -24,14 +24,15 @@ class Events extends React.Component {
 }
 
 // Require a document to be passed to this component.
-Events.propTypes = {
-  events: PropTypes.shape({
+Event.propTypes = {
+  event: PropTypes.shape({
     eventName: PropTypes.string,
     image: PropTypes.string,
     time: PropTypes.date,
     description: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(Events);
+export default withRouter(Event);
