@@ -9,6 +9,7 @@ import TheFooter from '../components/TheFooter';
 import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import EditStuff from '../pages/EditStuff';
+import EditProfile from '../pages/EditProfile';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -16,6 +17,7 @@ import Signout from '../pages/Signout';
 import DevTeam from '../pages/DevTeam';
 import EventsPage from '../pages/EventsPage';
 import ProfessorReview from '../pages/ProfessorReview';
+import UserProfile from '../pages/UserProfile';
 import Careers from '../pages/Careers';
 import ClassReview from '../pages/ClassReview';
 import AddClassReview from '../pages/AddClassReview';
@@ -38,6 +40,10 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ClassReview}/>
             <ProtectedRoute path="/professor" component={ProfessorReview}/>
             <ProtectedRoute path="/add-class" component={AddClassReview}/>
+            <ProtectedRoute path="/profile" component={UserProfile}/>
+            {/*<ProtectedRoute path="/list" component={ListStuff}/>*/}
+            {/*<ProtectedRoute path="/add" component={AddStuff}/>*/}
+            <ProtectedRoute path="/edit-profile/:_id" component={EditProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
