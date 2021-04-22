@@ -22,7 +22,7 @@ class EventsPage extends React.Component {
           <Container className={'eventsPageBody'} >
             <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
             <Card.Group centered>
-              {this.props.events.map((event) => <Event key={event._id} event={event}/>)}
+              {this.props.events.map((event, index) => <Event key={index} event={event}/>)}
             </Card.Group>
           </Container>
         </div>

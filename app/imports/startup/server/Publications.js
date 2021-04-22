@@ -24,11 +24,7 @@ Meteor.publish(ProfessorReviews.userPublicationName, function () {
 });
 
 Meteor.publish(Events.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Events.collection.find({ owner: username });
-  }
-  return this.ready();
+  return Events.collection.find();
 });
 
 Meteor.publish(Stuffs.userPublicationName, function () {
