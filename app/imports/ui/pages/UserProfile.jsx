@@ -38,7 +38,7 @@ class UserDisplay extends React.Component {
     const { firstName } = this.props.profileData;
     const classesTaken = _.pluck(this.props.classesEnr, 'className');
     const classReviews = this.props.classesEnr;
-    console.log(classReviews);
+    // console.log(classReviews);
     return (
       <div className="userHP">
         <Grid id='UserProfile-page' verticalAlign='middle' textAlign='center'>
@@ -80,7 +80,7 @@ class UserDisplay extends React.Component {
             {/*<Header as='h1' inverted>Hello {firstName}, your reviews for professors are listed below!!</Header>*/}
             <Header as='h1' color='brown'>Posted Professor Reviews</Header>
             {/* eslint-disable-next-line max-len */}
-            {_.map(this.props.professorReviews, (item) => <Message size='large' key={item._id} style={{ color: `#${randomColor3}` }}><b>You reviewed</b> <Label color='blue' size='large'>{item.professorName}</Label><br /><Icon name='long arrow alternate circle down outline' style={{ color: `#${randomColor2}` }} /><br />{item.review}</Message>)}
+            {_.map(this.props.professorReviews, (item) => <Message size='large' key={item._id} style={{ color: `#${randomColor3}` }}><b>You reviewed</b> <Label color='blue' size='large'>{item.professorName}</Label><br /><Icon name='arrow alternate circle down outline' style={{ color: `#${randomColor2}` }} /><br />{item.review}</Message>)}
 
             <Divider horizontal fitted>-----------------------------</Divider>
 
