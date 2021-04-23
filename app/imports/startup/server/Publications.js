@@ -82,3 +82,9 @@ Meteor.publish(null, function () {
   }
   return this.ready();
 });
+
+// General-Level Publications
+// Publish all documents from all users.
+Meteor.publish(ClassReviews.generalPublicationName, function () {
+  return ClassReviews.collection.find();
+});
