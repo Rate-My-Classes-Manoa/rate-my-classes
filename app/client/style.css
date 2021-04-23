@@ -74,6 +74,10 @@
   margin-bottom: 15px;
 }
 
+.classReviews {
+  display: none;
+}
+
 .landing-background {
   height: 750px;
   background: url('https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/hawaii-hall-quad-side-1024x597.jpg')
