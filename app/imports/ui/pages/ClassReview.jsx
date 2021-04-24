@@ -53,15 +53,15 @@ class ClassReview extends React.Component {
     return (
       <Container>
         <div id={'review'} >
-          <Header as="h3" textAlign="center">{searchTerm}</Header>
-          <Table>
+          <Header as="h3" textAlign="center">{searchTerm}</Header><br/>
+          <Table basic={'very'}>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Date</Table.HeaderCell>
-                <Table.HeaderCell>User</Table.HeaderCell>
                 <Table.HeaderCell>Class</Table.HeaderCell>
-                <Table.HeaderCell>Review</Table.HeaderCell>
                 <Table.HeaderCell>Rating</Table.HeaderCell>
+                <Table.HeaderCell>Date of Review</Table.HeaderCell>
+                <Table.HeaderCell>Review</Table.HeaderCell>
+                <Table.HeaderCell>User</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
