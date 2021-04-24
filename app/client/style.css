@@ -99,6 +99,14 @@
 .theHiddenClasses {
   display: none;
 }
+
+.classReviewSelect {
+  width:200px;
+  color: #024731;
+  font-weight: bold;
+  background-color: whitesmoke;
+}
+
 /*
 .landing-background::before {
   content: "";

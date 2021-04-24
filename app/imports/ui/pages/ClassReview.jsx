@@ -27,8 +27,8 @@ class ClassReview extends React.Component {
       <Container>
         <Header as="h2" textAlign="center">Class Reviews</Header>
         <strong>Please select a class:</strong>&nbsp;&nbsp;
-        <select onChange={this.onSelectChange.bind(this)}>
-          <option value=''></option>
+        <select className={'classReviewSelect'} onChange={this.onSelectChange.bind(this)}>
+          <option value=''>Select a class: </option>
           <option value='ICS 111'>ICS 111</option>
           <option value='ICS 141'>ICS 141</option>
           <option value='ICS 211'>ICS 211</option>
