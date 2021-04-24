@@ -5,44 +5,55 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import ClassItem from '../components/ClassItem';
 import { ClassReviews } from '../../api/classReview/ClassReview';
-import ClassSelection from '../components/ClassSelection';
+
+// eslint-disable-next-line no-undef
+const searchTerm = (localStorage.getItem('searchTerm') != null) ? localStorage.getItem('searchTerm') : 'ICS 111';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ClassReview extends React.Component {
-  constructor() {
-    super();
-    this.searchTerm = 'ICS 212';
+
+  onSelectChange(e) {
+    // eslint-disable-next-line no-console
+    console.log(e.target.value);
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('searchTerm', e.target.value);
+    // eslint-disable-next-line no-undef
+    window.location.reload();
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (
-      (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>
+      <Container>
+        <Header as="h2" textAlign="center">Class Reviews</Header>
+        <strong>Please select a class:</strong>&nbsp;&nbsp;
+        <select onChange={this.onSelectChange.bind(this)}>
+          <option value=''></option>
+          <option value='ICS 111'>ICS 111</option>
+          <option value='ICS 141'>ICS 141</option>
+          <option value='ICS 211'>ICS 211</option>
+          <option value='ICS 212'>ICS 212</option>
+          <option value='ICS 241'>ICS 241</option>
+          <option value='ICS 311'>ICS 311</option>
+          <option value='ICS 312'>ICS 312</option>
+          <option value='ICS 314'>ICS 314</option>
+          <option value='ICS 321'>ICS 321</option>
+        </select>
+        <br/>
+        <br />
+        <br />
+        {(this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>}
+      </Container>
     );
   }
 
   // Render the page once subscriptions have been received.
   renderPage() {
 
-    function showReviews() {
-      // eslint-disable-next-line no-undef
-      const reviews = document.getElementById('review');
-      if (reviews.style.display === 'none') {
-        reviews.style.display = 'block';
-      } else {
-        reviews.style.display = 'none';
-      }
-    }
-
     return (
       <Container>
-        <Header as="h2" textAlign="center">Class Reviews</Header>
-        <Header as="h4" textAlign="left">Please select a class:</Header>
-        <ClassSelection/><br />
-        <button className="ui yellow button" onClick={showReviews}>Show Reviews</button>
-        <br />
-        <br />
-        <div id={'review'} /* className={'classReviews'} */>
+        <div id={'review'} >
+          <Header as="h3" textAlign="center">{searchTerm}</Header>
           <Table>
             <Table.Header>
               <Table.Row>
@@ -76,8 +87,7 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the ClassReview documents
-  const reviewInstance = new ClassReview();
-  const reviews = ClassReviews.collection.find({ className: reviewInstance.searchTerm }).fetch();
+  const reviews = ClassReviews.collection.find({ className: searchTerm }).fetch();
   return {
     reviews,
     ready,
