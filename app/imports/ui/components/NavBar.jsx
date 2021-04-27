@@ -17,7 +17,7 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Rate My Classes - Manoa</Header>
         </Menu.Item>
         {this.props.currentUser ? ([
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key="profile"> Your Profile </Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key="profile" id="userProfile"> Your Profile </Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/event" key="event">Community Events</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key="list">Class Reviews</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/professor" key="professor">Professor Reviews</Menu.Item>,
@@ -31,9 +31,9 @@ class NavBar extends React.Component {
         ) : ''}
         <Menu.Item position="right" >
           {this.props.currentUser === '' ? (
-            <Dropdown text="Get Started" as='h2'>
+            <Dropdown id="get-started" text="Get Started" as='h2'>
               <Dropdown.Menu>
-                <Dropdown.Item><Link to="/signin"><Icon name="sign in alternate" size="large" color="blue" /><Button inverted color="facebook" size='large'> Sign In</Button></Link></Dropdown.Item>
+                <Dropdown.Item id="get-started-signin"><Link to="/signin"><Icon name="sign in alternate" size="large" color="blue" /><Button inverted color="facebook" size='large'> Sign In</Button></Link></Dropdown.Item>
                 <Dropdown.Item ><Link to="/signup"><Icon name="add user" size="large" color="blue" /><Button inverted color="facebook"> Sign Up</Button></Link></Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
