@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Label, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Label, Message, Segment, TextArea } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import swal from 'sweetalert';
+import { Profiles } from '../../Profiles/Profiles';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -11,7 +13,7 @@ class Signup extends React.Component {
   /* Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { email: '', password: '', error: '', imageLink: ' ', bio: '', firstName: '', lastName: '', city: '', state: '', redirectToReferer: false };
   }
 
   /* Update the form controls each time the user interacts with them. */
@@ -21,7 +23,18 @@ class Signup extends React.Component {
 
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password } = this.state;
+    const { email, password, firstName, lastName, city, state, imageLink, bio } = this.state;
+    // console.log(email);
+    const owner = email;
+    Profiles.collection.insert({ firstName, lastName, imageLink, bio, city, state, owner },
+      (error) => {
+        if (error) {
+          swal('Error', 'Something is missing, please re-check your input', 'error');
+        } else {
+          // swal('Success', 'Account created successfully', 'success');
+          // formRef.reset();
+        }
+      });
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
@@ -51,16 +64,18 @@ class Signup extends React.Component {
                   <Form.Input
                     label="First Name"
                     id="signup-first-name"
-                    name="firstname"
+                    name="firstName"
                     type="text"
+                    required
                     placeholder="First Name"
                     onChange={this.handleChange}
                   />
                   <Form.Input
                     label="Last Name"
                     id="signup-last-name"
-                    name="lastname"
+                    name="lastName"
                     type="text"
+                    required
                     placeholder="Last Name"
                     onChange={this.handleChange}
                   />
@@ -72,6 +87,7 @@ class Signup extends React.Component {
                   iconPosition="left"
                   name="email"
                   type="email"
+                  required
                   placeholder="E-mail address"
                   onChange={this.handleChange}
                 />
@@ -83,6 +99,7 @@ class Signup extends React.Component {
                   name="password"
                   placeholder="Password"
                   type="password"
+                  required
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -92,9 +109,54 @@ class Signup extends React.Component {
                   iconPosition="left"
                   name="cpassword"
                   type="password"
+                  required
                   placeholder="Confirm Password"
                   onChange={this.handleChange}
                 />
+                <Form.Field
+                  label="Bio"
+                  id="signup-bio"
+                  control={TextArea}
+                  name="bio"
+                  type="text"
+                  placeholder="Add a bio"
+                  required
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="City"
+                  id="signup-city"
+                  // icon=""
+                  // iconPosition=""
+                  name="city"
+                  type="text"
+                  placeholder="Enter a city"
+                  required
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="State"
+                  id="signup-state"
+                  // icon=""
+                  // iconPosition=""
+                  name="state"
+                  type="text"
+                  required
+                  placeholder="Enter your state"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Image Link"
+                  id="signup-image"
+                  // icon=""
+                  // iconPosition=""
+                  name="imageLink"
+                  type="text"
+                  required
+                  placeholder="Enter a link to your image"
+                  onChange={this.handleChange}
+                />
+
                 <Form.Button id="signup-form-submit" color="red" size="large" fluid content="Submit"/>
                 <Message color="teal">
                   <Message.Header> Already have an account?</Message.Header> <br />
