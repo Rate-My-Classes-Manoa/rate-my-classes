@@ -20,8 +20,8 @@ class ProfilesCollection {
       imageLink: { type: String },
       owner: String,
       bio: String,
-      classes: SimpleSchema.oneOf(String, Array),
-      'classes.$': { type: String },
+      // classes: SimpleSchema.oneOf(String, Array),
+      // 'classes.$': { type: String },
       // reviews: Object,
       // classes: Array,
     }, { tracker: Tracker });

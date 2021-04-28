@@ -16,8 +16,8 @@ class EditProfile extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id } = data;
-    Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner, classes } }, (error) => (error ?
+    const { firstName, lastName, bio, imageLink, city, state, owner, _id } = data;
+    Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal({
         title: 'Congratulations',
@@ -35,9 +35,9 @@ class EditProfile extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     return (
-      <Grid container centered>
+      <Grid container centered id="userEdit-Page">
         <Grid.Column>
-          <Header as="h2" textAlign="center">Edit Stuff</Header>
+          <Header as="h2" textAlign="center">Edit Profile</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='firstName'/>
@@ -50,7 +50,7 @@ class EditProfile extends React.Component {
               <ErrorsField/>
               <HiddenField name='owner' />
               {/* <HiddenField name='reviews' /> */}
-              <HiddenField name='classes' />
+              {/* <HiddenField name='classes' /> */}
             </Segment>
           </AutoForm>
         </Grid.Column>

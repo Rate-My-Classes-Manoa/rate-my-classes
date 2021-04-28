@@ -31,7 +31,7 @@ class UserInfo extends React.Component {
               {`${city}, ${state}`}
             </a>
           </Card.Content>
-          <Label active color='violet' size='huge'><Link to={`/edit-profile/${_id}`}>Edit Profile</Link></Label>
+          <Label active color='violet' size='huge'><Link to={`/edit-profile/${_id}`} id="editUserButton">Edit Profile</Link></Label>
         </Card>
       </Grid.Column>
     );

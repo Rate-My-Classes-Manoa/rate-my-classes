@@ -4,7 +4,7 @@ import { Container, Grid, Header, Image, Segment } from 'semantic-ui-react';
 export default class Careers extends React.Component {
   render() {
     return (
-      <div>
+      <div id="careers-page">
         <Container>
 
           <div className={'jobsHeaderFooter'}>

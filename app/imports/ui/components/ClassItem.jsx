@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Rating } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,11 +8,17 @@ class ClassItem extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.review.createdAt}</Table.Cell>
-        <Table.Cell>{this.props.review.owner}</Table.Cell>
         <Table.Cell>{this.props.review.className}</Table.Cell>
+        <Table.Cell>
+          <Rating
+            icon='star'
+            defaultRating={this.props.review.rating}
+            maxRating={5}
+            disabled />
+        </Table.Cell>
+        <Table.Cell>{this.props.review.createdAt}</Table.Cell>
         <Table.Cell>{this.props.review.review}</Table.Cell>
-        <Table.Cell>{this.props.review.rating}</Table.Cell>
+        <Table.Cell>{this.props.review.owner}</Table.Cell>
       </Table.Row>
     );
   }

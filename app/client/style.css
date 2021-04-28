@@ -21,7 +21,7 @@
   background-repeat: no-repeat;
 }
 .userHP {
-    background-image: url("https://i.pinimg.com/originals/3a/3b/7b/3a3b7b936e3ff87016de28ea865cbbb6.jpg");
+    background-image: url("/images/userHP.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -82,10 +82,10 @@
 }
 
  #signup-page {
-     background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+     background-image: url("/images/signup.jpeg");
  }
 
-.eventsPageBackground {
+#eventsPageBackground {
     background-image:  url("https://www.hawaii.edu/site/calendar/uploads/33564.jpg");
     background-size: cover;
     height: 800px;
@@ -95,6 +95,14 @@
 .theHiddenClasses {
   display: none;
 }
+
+.classReviewSelect {
+  width:200px;
+  color: #024731;
+  font-weight: bold;
+  background-color: whitesmoke;
+}
+
 /*
 .landing-background::before {
   content: "";

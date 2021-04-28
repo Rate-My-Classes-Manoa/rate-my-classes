@@ -1,15 +1,23 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 
+const classes = [
+  'ICS 111', 'ICS 141', 'ICS 211', 'ICS 212', 'ICS 241', 'ICS 311', 'ICS 312', 'ICS 314', 'ICS 321',
+];
+
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  className: String,
+  className: {
+    type: String,
+    allowedValues: classes,
+    defaultValue: 'ICS 111',
+  },
   review: String,
   rating: {
     type: Number,
@@ -44,12 +52,12 @@ class AddClassReview extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
+      <Grid container centered id="addClass-page">
         <Grid.Column>
           <Header as="h2" textAlign="center">Add Class Review</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='className'/>
+              <SelectField name='className'/>
               <SelectField name='rating' />
               <LongTextField name='review'/>
               <SubmitField value='Submit'/>

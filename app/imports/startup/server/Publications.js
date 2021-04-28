@@ -25,7 +25,10 @@ Meteor.publish(ProfessorReviews.userPublicationName, function () {
 });
 
 Meteor.publish(Events.userPublicationName, function () {
-  return Events.collection.find();
+  if (this.userId) {
+    return Events.collection.find({ });
+  }
+  return this.ready();
 });
 
 Meteor.publish(Stuffs.userPublicationName, function () {
@@ -35,7 +38,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   }
   return this.ready();
 });
-
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
