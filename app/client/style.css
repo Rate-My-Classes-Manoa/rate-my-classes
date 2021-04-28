@@ -85,7 +85,7 @@
      background-image: url("/images/signup.jpeg");
  }
 
-.eventsPageBackground {
+#eventsPageBackground {
     background-image:  url("https://www.hawaii.edu/site/calendar/uploads/33564.jpg");
     background-size: cover;
     height: 800px;

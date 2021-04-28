@@ -87,3 +87,7 @@ Meteor.publish(null, function () {
 Meteor.publish(ClassReviews.generalPublicationName, function () {
   return ClassReviews.collection.find();
 });
+
+Meteor.publish(Events.generalPublicationName, function () {
+  return Events.collection.find();
+});

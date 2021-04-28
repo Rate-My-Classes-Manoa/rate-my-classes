@@ -17,15 +17,13 @@ class EventsPage extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <div>
-        <div className={'eventsPageBackground'}>
-          <Container className={'eventsPageBody'} >
-            <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
-            <Card.Group centered>
-              {this.props.events.map((event) => <Event key={event._id} event={event}/>)}
-            </Card.Group>
-          </Container>
-        </div>
+      <div id="eventsPageBackground">
+        <Container className={'eventsPageBody'}>
+          <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
+          <Card.Group centered>
+            {/*{this.props.events.map((event) => <Event key={event._id} event={event}/>)}*/}
+          </Card.Group>
+        </Container>
       </div>
     );
   }
@@ -40,11 +38,11 @@ EventsPage.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Events.userPublicationName);
+  const subscription = Meteor.subscribe(Events.generalPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const events = Events.collection.find({}).fetch();
+  const events = Events.collection.find().fetch();
   return {
     events,
     ready,
