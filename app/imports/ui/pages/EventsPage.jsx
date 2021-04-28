@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Event from '../components/Event';
 import { Events } from '../../api/events/Events';
 
 class EventsPage extends React.Component {
