@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Event from '../components/Event';
+// import Event from '../components/Event';
 import { Events } from '../../api/events/Events';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -21,7 +21,7 @@ class EventsPage extends React.Component {
         <Container className={'eventsPageBody'}>
           <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
           <Card.Group centered>
-            {/*{this.props.events.map((event) => <Event key={event._id} event={event}/>)}*/}
+            {/* {this.props.events.map((event) => <Event key={event._id} event={event}/>)} */}
           </Card.Group>
         </Container>
       </div>
