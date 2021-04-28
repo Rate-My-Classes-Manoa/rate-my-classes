@@ -18,6 +18,11 @@ class UserProfilePage {
     await testController.expect(loggedInUser).eql(username);
     await testController.click('#userProfile');
   }
+
+  async checkName(testController) {
+    // This is first test to be run. Wait 10 seconds to avoid timeouts with GitHub Actions.
+    await testController.expect(Selector('#user-info-fullName')).eql('John Smith');
+  }
 }
 
 export const userProfilePage = new UserProfilePage();

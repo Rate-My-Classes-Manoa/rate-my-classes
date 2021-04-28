@@ -35,13 +35,14 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.skip('Test sign up works', async (testController) => {
+test('Test sign up works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignupPage(testController);
   await signupPage.signupUser(testController, newUser.firstName, newUser.lastName, newUser.username, newUser.password, newUser.bio, newUser.city, newUser.state, newUser.image);
   await navBar.isLoggedIn(testController, newUser.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+
 });
 
 test('Test User profile', async (testController) => {
@@ -65,12 +66,14 @@ test('Test User profile edit page ', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.skip('Test Profile edit', async (testController) => {
+test('Test Profile edit', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
   await editUserPage.isEditUserPage(testController, credentials.username);
   await editUserPage.isDisplayed(testController);
+  await editUserPage.editUser(testController);
+  await userProfilePage.isUserProfile(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });

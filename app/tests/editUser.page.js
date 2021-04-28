@@ -18,6 +18,11 @@ class EditUserPage {
     await testController.expect(loggedInUser).eql(username);
     await testController.click('#editUserButton');
   }
+
+  async editUser(testController) {
+    await testController.typeText('#edit-lastName', 'Smith', { replace: true });
+    await testController.doubleClick('#edit-Submit');
+  }
 }
 
 export const editUserPage = new EditUserPage();
