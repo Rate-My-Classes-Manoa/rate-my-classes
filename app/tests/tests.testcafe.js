@@ -35,7 +35,7 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test sign up works', async (testController) => {
+test.skip('Test sign up works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignupPage(testController);
   await signupPage.signupUser(testController, newUser.firstName, newUser.lastName, newUser.username, newUser.password, newUser.bio, newUser.city, newUser.state, newUser.image);
