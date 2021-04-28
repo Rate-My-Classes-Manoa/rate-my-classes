@@ -52,7 +52,7 @@ test('Test User profile edit', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.skip('Test Events page', async (testController) => {
+test('Test Events page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
