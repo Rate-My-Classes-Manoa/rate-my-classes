@@ -16,8 +16,8 @@ class EditProfile extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, bio, imageLink, classes, city, state, owner, _id } = data;
-    Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner, classes } }, (error) => (error ?
+    const { firstName, lastName, bio, imageLink, city, state, owner, _id } = data;
+    Profiles.collection.update(_id, { $set: { firstName, lastName, bio, imageLink, city, state, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal({
         title: 'Congratulations',
@@ -50,7 +50,7 @@ class EditProfile extends React.Component {
               <ErrorsField/>
               <HiddenField name='owner' />
               {/* <HiddenField name='reviews' /> */}
-              <HiddenField name='classes' />
+              {/* <HiddenField name='classes' /> */}
             </Segment>
           </AutoForm>
         </Grid.Column>
