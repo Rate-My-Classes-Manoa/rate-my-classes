@@ -33,8 +33,8 @@ class NavBar {
   /** Pull down login menu, go to sign up page. */
   async gotoSignupPage(testController) {
     await this.ensureLogout(testController);
-    await testController.click('#login-dropdown');
-    await testController.click('#login-dropdown-sign-up');
+    await testController.click('#get-started');
+    await testController.click('#get-started-signup');
   }
 }
 

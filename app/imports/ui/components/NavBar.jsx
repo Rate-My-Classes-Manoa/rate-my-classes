@@ -34,7 +34,7 @@ class NavBar extends React.Component {
             <Dropdown id="get-started" text="Get Started" as='h2'>
               <Dropdown.Menu>
                 <Dropdown.Item id="get-started-signin"><Link to="/signin"><Icon name="sign in alternate" size="large" color="blue" /><Button inverted color="facebook" size='large'> Sign In</Button></Link></Dropdown.Item>
-                <Dropdown.Item ><Link to="/signup"><Icon name="add user" size="large" color="blue" /><Button inverted color="facebook"> Sign Up</Button></Link></Dropdown.Item>
+                <Dropdown.Item id="get-started-signup" ><Link to="/signup"><Icon name="add user" size="large" color="blue" /><Button inverted color="facebook"> Sign Up</Button></Link></Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           ) : (
