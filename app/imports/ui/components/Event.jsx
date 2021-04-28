@@ -29,6 +29,7 @@ Event.propTypes = {
     eventName: PropTypes.string,
     image: PropTypes.string,
     time: PropTypes.date,
+    owner: PropTypes.string,
     description: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
