@@ -26,8 +26,7 @@ Meteor.publish(ProfessorReviews.userPublicationName, function () {
 
 Meteor.publish(Events.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Events.collection.find({ owner: username });
+    return Events.collection.find({ });
   }
   return this.ready();
 });
@@ -86,8 +85,4 @@ Meteor.publish(null, function () {
 // Publish all documents from all users.
 Meteor.publish(ClassReviews.generalPublicationName, function () {
   return ClassReviews.collection.find();
-});
-
-Meteor.publish(Events.generalPublicationName, function () {
-  return Events.collection.find();
 });
