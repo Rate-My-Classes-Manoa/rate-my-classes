@@ -12,8 +12,8 @@ class TheFooter extends React.Component {
           <div className={'footer'}>
             <div style={divStyle} className="ui center aligned container">
               <a href={'https://rate-my-classes-manoa.github.io/'}>Documentation</a> &nbsp; |
-              &nbsp; <Link to={'/dev-team'}>Dev Team</Link> &nbsp; |
-              &nbsp; <Link to={'/careers'}>Careers</Link> &nbsp; |
+              &nbsp; <Link to={'/dev-team'} id="devTeam-link">Dev Team</Link> &nbsp; |
+              &nbsp; <Link to={'/careers'} id="careers-link">Careers</Link> &nbsp; |
               &nbsp; <a href={'https://manoa.hawaii.edu'}>University of Hawaii at Manoa</a><br/>
               <div >
                 <Image className={'centered footerLogo'} size='medium' src={'/images/logo.png'} alt={'the logo'}/>

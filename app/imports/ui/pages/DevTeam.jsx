@@ -37,7 +37,7 @@ export default class DevTeam extends React.Component {
     }
 
     return (
-      <div>
+      <div id="devTeam-page">
         <div className={'devTeamBackground'}></div>
 
         <div className={'devTeamBody'}>

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Event from '../components/Event';
 import { Events } from '../../api/events/Events';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class EventsPage extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -21,7 +20,7 @@ class EventsPage extends React.Component {
         <Container className={'eventsPageBody'}>
           <Header as="h2" textAlign="center" inverted>University of Hawaii at Manoa Events</Header>
           <Card.Group centered>
-            {/*{this.props.events.map((event) => <Event key={event._id} event={event}/>)}*/}
+            {/* {this.props.events.map((event) => <Event key={event._id} event={event}/>)} */}
           </Card.Group>
         </Container>
       </div>
@@ -29,7 +28,7 @@ class EventsPage extends React.Component {
   }
 }
 
-// Require an array of Stuff documents in the props.
+// Require an array of Event documents in the props.
 EventsPage.propTypes = {
   events: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
