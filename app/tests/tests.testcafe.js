@@ -18,7 +18,7 @@ import { signupPage } from './signup.page';
 const credentials = { username: 'john@foo.com', password: 'changeme' };
 
 /** Info to make a new user */
-const newUser = { firstName: 'first', lastName: 'last', username: 'test@foo.com', password: 'changeme', bio: 'this is a test.', city: 'Honolulu', state: 'Hawaii', image: 'http://clipart-library.com/data_images/6103.png' };
+const newUser = { firstName: 'First', lastName: 'Last', username: 'test@foo.com', password: 'changeme', bio: 'This is a test.', city: 'Honolulu', state: 'Hawaii', image: 'http://clipart-library.com/data_images/6103.png' };
 
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
@@ -39,7 +39,6 @@ test('Test sign up works', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignupPage(testController);
   await signupPage.signupUser(testController, newUser.firstName, newUser.lastName, newUser.username, newUser.password, newUser.bio, newUser.city, newUser.state, newUser.image);
-  await navBar.isLoggedIn(testController, newUser.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 

@@ -168,6 +168,7 @@ class Signup extends React.Component {
               ''
             ) : (
               <Message
+                id='alreadyHaveAcc'
                 error
                 header="Registration was not successful"
                 content={this.state.error}
