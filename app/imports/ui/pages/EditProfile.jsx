@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-// import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../Profiles/Profiles';
 
 const bridge = new SimpleSchema2Bridge(Profiles.schema);
@@ -49,8 +48,6 @@ class EditProfile extends React.Component {
               <SubmitField id="edit-Submit" value='Submit'/>
               <ErrorsField/>
               <HiddenField name='owner' />
-              {/* <HiddenField name='reviews' /> */}
-              {/* <HiddenField name='classes' /> */}
             </Segment>
           </AutoForm>
         </Grid.Column>
@@ -59,7 +56,7 @@ class EditProfile extends React.Component {
   }
 }
 
-// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
+// Require the presence of a profiles document in the props object. Uniforms adds 'model' to the props, which we use.
 EditProfile.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
@@ -70,7 +67,7 @@ EditProfile.propTypes = {
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
-  // Get access to Stuff documents.
+  // Get access to Profiles documents.
   const subscription = Meteor.subscribe(Profiles.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();

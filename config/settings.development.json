@@ -27,27 +27,27 @@
       "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered the greatest player of all time."
     },
     {
-      "firstName": "Johnathan",
+      "firstName": "Admin",
       "lastName": "Foo",
-      "imageLink": "https://www.businessinsider.in/photo/77825377/Lionel-Messi-leaving-Barcelona-would-be-the-biggest-and-most-shocking-transfer-in-football-history-but-it-would-make-perfect-sense-for-everyone.jpg?imgsize=330710",
+      "imageLink": "https://adminheroblog.files.wordpress.com/2018/07/d33a7-zero-to-admin-hero-landing-page-mailerlite.jpg",
       "city": "Kapolei",
       "state": "Hawaii",
-      "owner" : "johnathan@foo.com",
-      "bio": "John is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time."
+      "owner" : "admin@foo.com",
+      "bio": "Admin is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time."
     }
     ],
 
   "defaultClassReviews": [
-    { "createdAt": "Tue Apr 20 2021", "className": "ICS 311", "rating": 4, "review": "Tough Class!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "Tue Apr 20 2021", "className": "ICS 311", "rating": 4, "review": "Tough Class!", "owner": "john@foo.com", "approved": false },
     { "createdAt": "Tue Apr 20 2021", "className": "ICS 314", "rating": 5, "review": "Great Class!", "owner": "john@foo.com", "approved": true },
-    { "createdAt": "Tue Apr 20 2021", "className": "ICS 212", "rating": 4, "review": "Interesting Class!", "owner": "admin@foo.com", "approved": true },
+    { "createdAt": "Tue Apr 20 2021", "className": "ICS 212", "rating": 4, "review": "Interesting Class!", "owner": "admin@foo.com", "approved": false },
     { "createdAt": "Tue Apr 20 2021", "className": "ICS 321", "rating": 4, "review": "Good Class!", "owner": "admin@foo.com", "approved": true }
   ],
 
   "defaultProfessorReviews": [
-    { "createdAt": "Tue Apr 20 2021", "professorName": "Peter Sadowski", "rating": 5, "review": "Awesome Professor!", "owner": "john@foo.com", "approved": true },
+    { "createdAt": "Tue Apr 20 2021", "professorName": "Peter Sadowski", "rating": 5, "review": "Awesome Professor!", "owner": "john@foo.com", "approved": false },
     { "createdAt": "Tue Apr 20 2021", "professorName": "Phillip Johnson", "rating": 5, "review": "Great Professor!", "owner": "john@foo.com", "approved": true },
-    { "createdAt": "Tue Apr 20 2021", "professorName": "Ravi Narayan", "rating": 5, "review": "Interesting Professor!", "owner": "admin@foo.com", "approved": true },
+    { "createdAt": "Tue Apr 20 2021", "professorName": "Ravi Narayan", "rating": 5, "review": "Interesting Professor!", "owner": "admin@foo.com", "approved": false },
     { "createdAt": "Tue Apr 20 2021", "professorName": "Mahdi Belcaid", "rating": 5, "review": "Good Professor!", "owner": "admin@foo.com", "approved": true }
   ],
 
