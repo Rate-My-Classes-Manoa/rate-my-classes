@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class UserInfo extends React.Component {
+class AdminInfo extends React.Component {
   render() {
     const { firstName, lastName, imageLink, owner, bio, city, state, _id } = this.props.data;
     const leftGrid = { marginLeft: '20px' };
@@ -37,7 +37,7 @@ class UserInfo extends React.Component {
 }
 
 // Require a document to be passed to this component.
-UserInfo.propTypes = {
+AdminInfo.propTypes = {
   data: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
@@ -51,4 +51,4 @@ UserInfo.propTypes = {
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(UserInfo);
+export default withRouter(AdminInfo);

@@ -24,15 +24,11 @@ class Signup extends React.Component {
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
     const { email, password, firstName, lastName, city, state, imageLink, bio } = this.state;
-    // console.log(email);
     const owner = email;
     Profiles.collection.insert({ firstName, lastName, imageLink, bio, city, state, owner },
       (error) => {
         if (error) {
           swal('Error', 'Something is missing, please re-check your input', 'error');
-        } else {
-          // swal('Success', 'Account created successfully', 'success');
-          // formRef.reset();
         }
       });
     Accounts.createUser({ email, username: email, password }, (err) => {
@@ -126,8 +122,6 @@ class Signup extends React.Component {
                 <Form.Input
                   label="City"
                   id="signup-city"
-                  // icon=""
-                  // iconPosition=""
                   name="city"
                   type="text"
                   placeholder="Enter a city"
@@ -137,8 +131,6 @@ class Signup extends React.Component {
                 <Form.Input
                   label="State"
                   id="signup-state"
-                  // icon=""
-                  // iconPosition=""
                   name="state"
                   type="text"
                   required
@@ -148,8 +140,6 @@ class Signup extends React.Component {
                 <Form.Input
                   label="Image Link"
                   id="signup-image"
-                  // icon=""
-                  // iconPosition=""
                   name="imageLink"
                   type="text"
                   required
