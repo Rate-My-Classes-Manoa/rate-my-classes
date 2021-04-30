@@ -11,7 +11,6 @@ const searchTerm = (localStorage.getItem('searchTerm') != null) ? localStorage.g
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ClassReview extends React.Component {
-
   onSelectChange(e) {
     // eslint-disable-next-line no-console
     console.log(e.target.value);
