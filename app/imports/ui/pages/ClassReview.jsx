@@ -87,7 +87,7 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the ClassReview documents
-  const reviews = ClassReviews.collection.find({ className: searchTerm }).fetch();
+  const reviews = ClassReviews.collection.find({ className: searchTerm, approved: true }).fetch();
   return {
     reviews,
     ready,
