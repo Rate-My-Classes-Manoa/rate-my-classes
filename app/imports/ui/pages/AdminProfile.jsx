@@ -19,7 +19,7 @@ class AdminProfile extends React.Component {
     const exist = (test.length !== 0);
     return (
       exist ? test.map((stuff) => <AdminDisplay key= { stuff._id } classesEnr= {classesEnrolled} profileData= {stuff} professorReviews={professorReview}/>) :
-        <Loader active>Getting dataa</Loader>
+        <Loader active>Getting data</Loader>
     );
   }
 }
