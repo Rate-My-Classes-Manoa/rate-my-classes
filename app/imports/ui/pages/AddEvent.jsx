@@ -32,7 +32,7 @@ class AddEvent extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered id="addClass-page">
+      <Grid centered id="addEvent-page">
         <Grid.Column>
           <Header as="h2" textAlign="center">Add Events</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
