@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
+import { ClassList } from '../../api/classList/ClassList';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
 import { Events } from '../../api/events/Events';
 
@@ -93,4 +94,8 @@ Meteor.publish(null, function () {
 // Publish all documents from all users.
 Meteor.publish(ClassReviews.generalPublicationName, function () {
   return ClassReviews.collection.find();
+});
+
+Meteor.publish(ClassList.generalPublicationName, function () {
+  return ClassList.collection.find();
 });
