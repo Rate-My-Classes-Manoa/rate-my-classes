@@ -35,7 +35,7 @@
       "owner" : "admin@foo.com",
       "bio": "Admin is a great soccer player. He has played and won a world cup for his country. He is considered as the greatest player of all time."
     }
-    ],
+  ],
 
   "defaultClassReviews": [
     { "createdAt": "Tue Apr 20 2021", "className": "ICS 311", "rating": 4, "review": "Tough Class!", "owner": "john@foo.com", "approved": false },
@@ -53,10 +53,10 @@
 
   "defaultEvents": [
     {"eventName": "SCEP Live Online: Kenny Endo and Taiko Center of the Pacific",
-    "image": "https://www.hawaii.edu/site/calendar/uploads/38685.jpg",
-    "time": "April 14",
-    "owner": "john@foo.com",
-    "description": "A master of contemporary percussion and rhythm at the vanguard of the taiko genre Kenny Endo continues to explore new possibilities for this ancient Japanese instrument. A performer, composer, and teacher of taiko, he has received numerous awards, accolades, and a natori (a stage name in classical drumming). Kenny is a consummate artist, blending taiko with original music through collaborations with international artists."
+      "image": "https://www.hawaii.edu/site/calendar/uploads/38685.jpg",
+      "time": "April 14",
+      "owner": "john@foo.com",
+      "description": "A master of contemporary percussion and rhythm at the vanguard of the taiko genre Kenny Endo continues to explore new possibilities for this ancient Japanese instrument. A performer, composer, and teacher of taiko, he has received numerous awards, accolades, and a natori (a stage name in classical drumming). Kenny is a consummate artist, blending taiko with original music through collaborations with international artists."
     },
     {"eventName": "Meditation Session with Chinese Healing Art",
       "image": "https://miro.medium.com/max/1096/0*MXNjDsYuSaRxjWA1.",
