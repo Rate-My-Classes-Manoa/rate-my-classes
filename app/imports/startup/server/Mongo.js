@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
+import { ClassList } from '../../api/classList/ClassList';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
 import { Events } from '../../api/events/Events';
 import { ClassReviewsForUserpage } from '../../api/classReview/ClassReviewForUserpage';
@@ -12,6 +13,11 @@ import { ClassReviewsForUserpage } from '../../api/classReview/ClassReviewForUse
 function addData(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
   Stuffs.collection.insert(data);
+}
+
+function addClassList(data) {
+  console.log(`  Adding class ${data.class}`);
+  ClassList.collection.insert(data);
 }
 
 function addClassReviews(data) {
@@ -31,6 +37,14 @@ function addProfessorReviews(data) {
 function addEvent(data) {
   console.log(`  Adding: ${data.eventName}`);
   Events.collection.insert(data);
+}
+
+// Initialize the ClassListCollection if empty.
+if (ClassList.collection.find().count() === 0) {
+  if (Meteor.settings.defaultClassList) {
+    console.log('Creating default class list.');
+    Meteor.settings.defaultClassList.map(data => addClassList(data));
+  }
 }
 
 // Initialize the ClassReviewsCollection if empty.
