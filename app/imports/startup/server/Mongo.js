@@ -26,6 +26,13 @@ function updateTotalClassReviewsCount(className) {
   ClassList.collection.update(record._id, { $set: { totalRatings: totalRating } });
 }
 
+function updateAvgRating(className, stars) {
+  const record = ClassList.collection.findOne({ class: className });
+  const totalRatings = record.totalRatings;
+  const avgRating = (record.avgRating + stars) / totalRatings;
+  ClassList.collection.update(record._id, { $set: { avgRating: avgRating } });
+}
+
 function updateRatingsCount(className, stars) {
   const record = ClassList.collection.findOne({ class: className });
   const ratings = {
@@ -37,15 +44,25 @@ function updateRatingsCount(className, stars) {
   };
 
   switch (stars) {
-  case 1: ClassList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+  case 1:
+    ClassList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+    updateAvgRating(className, stars);
     break;
-  case 2: ClassList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+  case 2:
+    ClassList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+    updateAvgRating(className, stars);
     break;
-  case 3: ClassList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+  case 3:
+    ClassList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+    updateAvgRating(className, stars);
     break;
-  case 4: ClassList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+  case 4:
+    ClassList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+    updateAvgRating(className, stars);
     break;
-  case 5: ClassList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+  case 5:
+    ClassList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+    updateAvgRating(className, stars);
     break;
   default:
   }
@@ -54,8 +71,10 @@ function updateRatingsCount(className, stars) {
 function addClassReviews(data) {
   console.log(`  Adding review for ${data.className} by (${data.owner})`);
   ClassReviews.collection.insert(data);
-  updateTotalClassReviewsCount(data.className);
-  updateRatingsCount(data.className, data.rating);
+  if (data.approved === true) {
+    updateTotalClassReviewsCount(data.className);
+    updateRatingsCount(data.className, data.rating);
+  }
 }
 
 function addClassReviewsForUserpage(data) {
