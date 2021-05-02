@@ -32,7 +32,7 @@ class ClassReview extends React.Component {
           <option value='ICS 141'>ICS 141</option>
           <option value='ICS 211'>ICS 211</option>
           <option value='ICS 212'>ICS 212</option>
-          <option value='ICS 222'>ICS 212</option>
+          <option value='ICS 222'>ICS 222</option>
           <option value='ICS 235'>ICS 235</option>
           <option value='ICS 241'>ICS 241</option>
           <option value='ICS 311'>ICS 311</option>
