@@ -20,9 +20,42 @@ function addClassList(data) {
   ClassList.collection.insert(data);
 }
 
+function updateTotalClassReviewsCount(className) {
+  const record = ClassList.collection.findOne({ class: className });
+  const totalRating = record.totalRatings + 1;
+  ClassList.collection.update(record._id, { $set: { totalRatings: totalRating } });
+}
+
+function updateRatingsCount(className, stars) {
+  const record = ClassList.collection.findOne({ class: className });
+  const ratings = {
+    1: record['1star'],
+    2: record['2star'],
+    3: record['3star'],
+    4: record['4star'],
+    5: record['5star'],
+  };
+
+  switch (stars) {
+  case 1: ClassList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+    break;
+  case 2: ClassList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+    break;
+  case 3: ClassList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+    break;
+  case 4: ClassList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+    break;
+  case 5: ClassList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+    break;
+  default:
+  }
+}
+
 function addClassReviews(data) {
   console.log(`  Adding review for ${data.className} by (${data.owner})`);
   ClassReviews.collection.insert(data);
+  updateTotalClassReviewsCount(data.className);
+  updateRatingsCount(data.className, data.rating);
 }
 
 function addClassReviewsForUserpage(data) {

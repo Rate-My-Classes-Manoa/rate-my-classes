@@ -32,6 +32,10 @@ class ClassListCollection {
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
+
+  getTotalRatings() {
+    return this.totalRatings;
+  }
 }
 
 /**

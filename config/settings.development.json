@@ -38,18 +38,18 @@
   ],
 
   "defaultClassList": [
-    {"classAlpha": "ICS", "classNUmber": 111, "class": "ICS 111", "className": "Introduction to Computer Science I", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 141, "class": "ICS 141", "className": "Discrete Mathematics for Computer Science I", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 211, "class": "ICS 211", "className": "Introduction to Computer Science II", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 212, "class": "ICS 212", "className": "Program Structure", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 222, "class": "ICS 222", "className": "Basic Concepts of Computer Science", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 235, "class": "ICS 235", "className": "Machine Learning Methods", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 241, "class": "ICS 241", "className": "Discrete Mathematics for Computer Science II", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 311, "class": "ICS 311", "className": "Algorithms", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 312, "class": "ICS 312", "className": "Machine-Level and Systems Programming", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 313, "class": "ICS 313", "className": "Programming Language Theory", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 314, "class": "ICS 314", "className": "Software Engineering I", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
-    {"classAlpha": "ICS", "classNUmber": 321, "class": "ICS 321", "className": "Database Systems I", "1start": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 }
+    {"classAlpha": "ICS", "classNumber": 111, "class": "ICS 111", "className": "Introduction to Computer Science I", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 141, "class": "ICS 141", "className": "Discrete Mathematics for Computer Science I", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 211, "class": "ICS 211", "className": "Introduction to Computer Science II", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 212, "class": "ICS 212", "className": "Program Structure", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 222, "class": "ICS 222", "className": "Basic Concepts of Computer Science", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 235, "class": "ICS 235", "className": "Machine Learning Methods", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 241, "class": "ICS 241", "className": "Discrete Mathematics for Computer Science II", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 311, "class": "ICS 311", "className": "Algorithms", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 312, "class": "ICS 312", "className": "Machine-Level and Systems Programming", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 313, "class": "ICS 313", "className": "Programming Language Theory", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 314, "class": "ICS 314", "className": "Software Engineering I", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    {"classAlpha": "ICS", "classNumber": 321, "class": "ICS 321", "className": "Database Systems I", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 }
   ],
 
   "defaultClassReviews": [
