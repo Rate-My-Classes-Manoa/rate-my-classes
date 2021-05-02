@@ -5,17 +5,17 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 import { ClassReviews } from '../../api/classReview/ClassReview';
-
-const classes = [
-  'ICS 111', 'ICS 141', 'ICS 211', 'ICS 212', 'ICS 241', 'ICS 311', 'ICS 312', 'ICS 314', 'ICS 321',
-];
+import { ClassList } from '../../api/classList/ClassList';
+import ClassSelection from '../components/ClassSelection';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   className: {
     type: String,
-    allowedValues: classes,
+    allowedValues: ClassSelection,
     defaultValue: 'ICS 111',
   },
   review: String,
@@ -70,4 +70,21 @@ class AddClassReview extends React.Component {
   }
 }
 
-export default AddClassReview;
+// Require an array of Class Review documents in the props.
+AddClassReview.propTypes = {
+  classList: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+export default withTracker(() => {
+  // Get access to collections.
+  const subscription = Meteor.subscribe(ClassList.generalPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the data from collections
+  const classList = ClassList.collection.find({}).fetch();
+  return {
+    classList,
+    ready,
+  };
+})(AddClassReview);
