@@ -102,25 +102,26 @@ class ClassReview extends React.Component {
 // Require an array of Class Review documents in the props.
 ClassReview.propTypes = {
   reviews: PropTypes.array.isRequired,
-  classList: PropTypes.array.isRequired,
+  // classList: PropTypes.array.isRequired,
   reviewsReady: PropTypes.bool.isRequired,
+  // classListReady: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to ClassReview documents.
   const reviewsSubscription = Meteor.subscribe(ClassReviews.generalPublicationName);
-  const classListSubscription = Meteor.subscribe(ClassList.generalPublicationName);
+  Meteor.subscribe(ClassList.generalPublicationName);
   // Determine if the subscription is ready
   const reviewsReady = reviewsSubscription.ready();
-  const classListReady = classListSubscription.ready();
+  // const classListReady = classListSubscription.ready();
   // Get the ClassReview documents
   const reviews = ClassReviews.collection.find({ className: searchTerm, approved: true }).fetch();
-  const classList = ClassList.collection.find({}).fetch();
+  // const classList = ClassList.collection.find({}).fetch();
   return {
     reviews,
-    classList,
+    // classList,
     reviewsReady,
-    classListReady,
+    // classListReady,
   };
 })(ClassReview);
