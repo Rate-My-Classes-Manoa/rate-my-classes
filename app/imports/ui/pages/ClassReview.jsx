@@ -8,11 +8,11 @@ import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
 
 // eslint-disable-next-line no-undef
-const searchTerm = (localStorage.getItem('searchTerm') != null) ? localStorage.getItem('searchTerm') : 'ICS 111';
+const searchTerm = localStorage.getItem('searchTerm');
 // eslint-disable-next-line no-undef
-const description = (searchTerm !== 'ICS 111') ? localStorage.getItem('description') : 'Introduction to Computer Science I';
+const description = localStorage.getItem('description');
 // eslint-disable-next-line no-undef
-const rating = (localStorage.getItem('rating') != null) ? localStorage.getItem('rating') : '';
+const rating = localStorage.getItem('rating');
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ClassReview extends React.Component {
