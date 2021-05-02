@@ -22,12 +22,15 @@ class ClassReview extends React.Component {
     // eslint-disable-next-line no-undef
     localStorage.setItem('searchTerm', e.target.value);
     const record = ClassList.collection.findOne({ class: e.target.value });
+    console.log(record);
+    console.log(record.className);
+    console.log(record.avgRating);
     // eslint-disable-next-line no-undef
     localStorage.setItem('description', record.className);
     // eslint-disable-next-line no-undef
     localStorage.setItem('rating', record.avgRating);
     // eslint-disable-next-line no-undef
-    window.location.reload();
+    // window.location.reload();
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -102,26 +105,26 @@ class ClassReview extends React.Component {
 // Require an array of Class Review documents in the props.
 ClassReview.propTypes = {
   reviews: PropTypes.array.isRequired,
-  // classList: PropTypes.array.isRequired,
+  classList: PropTypes.array.isRequired,
   reviewsReady: PropTypes.bool.isRequired,
-  // classListReady: PropTypes.bool.isRequired,
+  classListReady: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to ClassReview documents.
   const reviewsSubscription = Meteor.subscribe(ClassReviews.generalPublicationName);
-  Meteor.subscribe(ClassList.generalPublicationName);
+  const classListSubscription = Meteor.subscribe(ClassList.generalPublicationName);
   // Determine if the subscription is ready
   const reviewsReady = reviewsSubscription.ready();
-  // const classListReady = classListSubscription.ready();
+  const classListReady = classListSubscription.ready();
   // Get the ClassReview documents
   const reviews = ClassReviews.collection.find({ className: searchTerm, approved: true }).fetch();
-  // const classList = ClassList.collection.find({}).fetch();
+  const classList = ClassList.collection.find({}).fetch();
   return {
     reviews,
-    // classList,
+    classList,
     reviewsReady,
-    // classListReady,
+    classListReady,
   };
 })(ClassReview);
