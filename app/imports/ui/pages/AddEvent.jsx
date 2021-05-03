@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Container } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField, LongTextField, DateField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 // import { Meteor } from 'meteor/meteor';
@@ -32,23 +32,25 @@ class AddEvent extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid centered id="addEvent-page">
-        <Grid.Column>
-          <Header as="h2" textAlign="center">Add Events</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
-              <TextField name='eventName'/>
-              <TextField name='image' />
-              {/* <span>(Format: MM/DD/YYYY)<TextField name='time'/></span> */}
-              <DateField name="time" />
-              {/* <TextField name='owner'/> */}
-              <LongTextField name='description'/>
-              <SubmitField id="edit-Submit" value='Submit'/>
-              <ErrorsField/>
-            </Segment>
-          </AutoForm>
-        </Grid.Column>
-      </Grid>
+      <Container>
+        <Grid centered id="addEvent-page">
+          <Grid.Column>
+            <Header as="h2" textAlign="center" inverted>Add Events</Header>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+              <Segment>
+                <TextField name='eventName'/>
+                <TextField name='image' />
+                {/* <span>(Format: MM/DD/YYYY)<TextField name='time'/></span> */}
+                <DateField name="time" />
+                {/* <TextField name='owner'/> */}
+                <LongTextField name='description'/>
+                <SubmitField id="edit-Submit" value='Submit'/>
+                <ErrorsField/>
+              </Segment>
+            </AutoForm>
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }
