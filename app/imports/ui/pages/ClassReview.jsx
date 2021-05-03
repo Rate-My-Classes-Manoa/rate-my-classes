@@ -30,7 +30,7 @@ class ClassReview extends React.Component {
     // eslint-disable-next-line no-undef
     localStorage.setItem('rating', record.avgRating);
     // eslint-disable-next-line no-undef
-    // window.location.reload();
+    window.location.reload();
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
