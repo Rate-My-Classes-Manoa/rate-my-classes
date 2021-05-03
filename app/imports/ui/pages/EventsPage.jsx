@@ -9,29 +9,6 @@ import { Events } from '../../api/events/Events';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class EventsPage extends React.Component {
 
-  // events = [
-  //   { eventName: 'SCEP Live Online: Kenny Endo and Taiko Center of the Pacific',
-  //     image: 'https://www.hawaii.edu/site/calendar/uploads/38685.jpg',
-  //     time: 'April 14',
-  //     owner: 'john@foo.com',
-  //     description: 'A master of contemporary percussion and rhythm at the vanguard,' +
-  //         ' of the taiko genre Kenny Endo continues to explore new possibilities for ' +
-  //         'this ancient Japanese instrument.  A performer, composer, and teacher of taiko,' +
-  //         ' he has received numerous awards, accolades, and a natori (a stage name in' +
-  //         ' classical drumming). Kenny is a consummate artist, blending taiko with original' +
-  //         ' music through collaborations with international artists.',
-  //   },
-  //   { eventName: 'Meditation Session with Chinese Healing Art',
-  //     image: 'https://miro.medium.com/max/1096/0*MXNjDsYuSaRxjWA1.',
-  //     time: 'April 14',
-  //     owner: 'john@foo.com',
-  //     description: 'Come and join us in our online meditation sessions! Relax and' +
-  //         ' unwind from your busy schedule with a 15-minute meditation session! ' +
-  //         'To register, please fill out this Google form below:' +
-  //         ' https://forms.gle/gHvYpE75yNDSL58b6',
-  //   },
-  // ];
-
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
