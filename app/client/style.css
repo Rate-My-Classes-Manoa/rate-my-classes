@@ -28,6 +28,14 @@
   background-repeat: no-repeat;
 }
 
+.addItem {
+  margin-top: 5px !important;
+  background-image: url("/images/userHP.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .devTeamBody {
   position: absolute;
   top: 50%;

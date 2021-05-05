@@ -52,9 +52,9 @@ class AddClassReview extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered id="addClass-page">
+      <Grid container centered className="addItem">
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Class Review</Header>
+          <Header as="h2" textAlign="center" inverted>Add Class Review</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <SelectField name='className'/>
