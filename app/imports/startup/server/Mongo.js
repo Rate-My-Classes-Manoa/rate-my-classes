@@ -21,7 +21,7 @@ function addClassList(data) {
 }
 
 function updateTotalClassReviewsCount(className) {
-  const record = ClassList.collection.findOne({ class: className });
+  const record = ClassList.collection.findOne({ classA: className });
   const totalRating = record.totalRatings + 1;
   ClassList.collection.update(record._id, { $set: { totalRatings: totalRating } });
 }
@@ -36,32 +36,32 @@ function updateAvgRating(className, stars) {
 function updateRatingsCount(className, stars) {
   const record = ClassList.collection.findOne({ class: className });
   const ratings = {
-    1: record['1star'],
-    2: record['2star'],
-    3: record['3star'],
-    4: record['4star'],
-    5: record['5star'],
+    1: record.oneStar,
+    2: record.twoStar,
+    3: record.threeStar,
+    4: record.fourStar,
+    5: record.fiveStar,
   };
 
   switch (stars) {
   case 1:
-    ClassList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+    ClassList.collection.update(record._id, { $set: { oneStar: ratings[1] + 1 } });
     updateAvgRating(className, stars);
     break;
   case 2:
-    ClassList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+    ClassList.collection.update(record._id, { $set: { twoStar: ratings[2] + 1 } });
     updateAvgRating(className, stars);
     break;
   case 3:
-    ClassList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+    ClassList.collection.update(record._id, { $set: { threeStar: ratings[3] + 1 } });
     updateAvgRating(className, stars);
     break;
   case 4:
-    ClassList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+    ClassList.collection.update(record._id, { $set: { fourStar: ratings[4] + 1 } });
     updateAvgRating(className, stars);
     break;
   case 5:
-    ClassList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+    ClassList.collection.update(record._id, { $set: { fiveStar: ratings[5] + 1 } });
     updateAvgRating(className, stars);
     break;
   default:

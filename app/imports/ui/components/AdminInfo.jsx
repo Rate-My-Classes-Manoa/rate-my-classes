@@ -30,6 +30,7 @@ class AdminInfo extends React.Component {
             </a>
           </Card.Content>
           <Label active color='violet' size='huge'><Link to={`/edit-profile/${_id}`}>Edit Profile</Link></Label>
+          <Label active color='violet' size='huge'><Link to={`/addclass/${_id}`}>Add Class</Link></Label>
         </Card>
       </Grid.Column>
     );

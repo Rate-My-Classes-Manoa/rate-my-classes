@@ -21,6 +21,7 @@ import ClassReview from '../pages/ClassReview';
 import AddClassReview from '../pages/AddClassReview';
 import AddEvent from '../pages/AddEvent';
 // import AdminProfile from '../pages/AdminProfile';
+import AddClass from '../components/AddClass';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -43,6 +44,7 @@ class App extends React.Component {
             <ProtectedRoute path="/profile" component={UserProfile}/>
             <ProtectedRoute path="/edit-profile/:_id" component={EditProfile}/>
             <AdminProtectedRoute path="/addevent" component={AddEvent}/>
+            <AdminProtectedRoute path="/addclass" component={AddClass}/>
             <Route component={NotFound}/>
           </Switch>
           <TheFooter/>
