@@ -11,6 +11,9 @@ import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
 import ClassSelection from '../components/ClassSelection';
 
+// const classes = ClassList.collection.
+// console.log(classes);
+
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   className: {
