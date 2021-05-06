@@ -3,9 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Table, Rating } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 import ClassItem from '../components/ClassItem';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
+import ClassSelection from '../components/ClassSelection';
 
 // eslint-disable-next-line no-undef
 const searchTerm = localStorage.getItem('searchTerm');
@@ -22,9 +24,6 @@ class ClassReview extends React.Component {
     // eslint-disable-next-line no-undef
     localStorage.setItem('searchTerm', e.target.value);
     const record = ClassList.collection.findOne({ class: e.target.value });
-    console.log(record);
-    console.log(record.className);
-    console.log(record.avgRating);
     // eslint-disable-next-line no-undef
     localStorage.setItem('description', record.className);
     // eslint-disable-next-line no-undef
@@ -35,33 +34,14 @@ class ClassReview extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
+    const classes = _.sortBy(this.props.classList, 'class');
     return (
       <Container>
         <Header as="h2" textAlign="center">Class Reviews</Header>
         <strong>Please select a class:</strong>&nbsp;&nbsp;
         <select className={'classReviewSelect'} onChange={this.onSelectChange.bind(this)}>
           <option value=''>Select a class: </option>
-          <option value='ICS 111'>ICS 111</option>
-          <option value='ICS 141'>ICS 141</option>
-          <option value='ICS 211'>ICS 211</option>
-          <option value='ICS 212'>ICS 212</option>
-          <option value='ICS 222'>ICS 222</option>
-          <option value='ICS 235'>ICS 235</option>
-          <option value='ICS 241'>ICS 241</option>
-          <option value='ICS 311'>ICS 311</option>
-          <option value='ICS 312'>ICS 312</option>
-          <option value='ICS 313'>ICS 313</option>
-          <option value='ICS 314'>ICS 314</option>
-          <option value='ICS 321'>ICS 321</option>
-          <option value='MATH 241'>MATH 241</option>
-          <option value='MATH 242'>MATH 242</option>
-          <option value='MATH 243'>MATH 243</option>
-          <option value='MATH 244'>MATH 244</option>
-          <option value='MATH 301'>MATH 301</option>
-          <option value='MATH 302'>MATH 302</option>
-          <option value='MATH 307'>MATH 307</option>
-          <option value='MATH 311'>MATH 311</option>
-          <option value='MATH 372'>MATH 372</option>
+          {classes.map((aClass) => <ClassSelection key={aClass._id} class={aClass}/>)}
         </select>
         <br/>
         <br />

@@ -31,7 +31,7 @@ class AddNewClass extends React.Component {
     const { classAlpha, classNumber, className } = data;
     const theClass = `${classAlpha} ${classNumber}`;
     ClassList.collection.insert({
-      classAlpha: classAlpha, classNumber: classNumber, className: className, class: theClass,
+      classAlpha: classAlpha, classNumber: classNumber, class: theClass, className: className,
       '1star': 0, '2star': 0, '3star': 0, '4star': 0, '5star': 0, totalRatings: 0, avgRating: 0,
     },
     (error) => {
