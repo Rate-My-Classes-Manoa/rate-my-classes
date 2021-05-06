@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Professor table. See pages/ListProfessor.jsx. */
-class ProfessorSelection extends React.Component {
+/** Renders a single row in the List class table. See pages/Listclass.jsx. */
+class ClassSelection extends React.Component {
   render() {
     return (
-      <option value={this.props.Professor.name}>{this.props.Professor.name}</option>
+      <option value={this.props.professor.name}>{this.props.professor.name}</option>
     );
   }
 }
 
 // Require a document to be passed to this component.
-ProfessorSelection.propTypes = {
-  Professor: PropTypes.shape({
+ClassSelection.propTypes = {
+  professor: PropTypes.shape({
     firstName: PropTypes.string,
-    lastName: PropTypes.Number,
+    lastName: PropTypes.string,
     name: PropTypes.string,
     department: PropTypes.string,
     imageLink: PropTypes.string,
@@ -31,4 +31,4 @@ ProfessorSelection.propTypes = {
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(ProfessorSelection);
+export default withRouter(ClassSelection);
