@@ -20,6 +20,7 @@ import Careers from '../pages/Careers';
 import ClassReview from '../pages/ClassReview';
 import AddClassReview from '../pages/AddClassReview';
 import AddEvent from '../pages/AddEvent';
+import AddNewClass from '../pages/AddNewClass';
 // import AdminProfile from '../pages/AdminProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -39,7 +40,8 @@ class App extends React.Component {
             <ProtectedRoute path="/event" component={EventsPage}/>
             <ProtectedRoute path="/list" component={ClassReview}/>
             <ProtectedRoute path="/professor" component={ProfessorReview}/>
-            <ProtectedRoute path="/add-class" component={AddClassReview}/>
+            <ProtectedRoute path="/add-class-review" component={AddClassReview}/>
+            <ProtectedRoute path="/add-class" component={AddNewClass}/>
             <ProtectedRoute path="/profile" component={UserProfile}/>
             <ProtectedRoute path="/edit-profile/:_id" component={EditProfile}/>
             <AdminProtectedRoute path="/addevent" component={AddEvent}/>
