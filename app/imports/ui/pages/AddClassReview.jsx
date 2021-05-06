@@ -52,7 +52,7 @@ class AddClassReview extends React.Component {
     const bridge = new SimpleSchema2Bridge(formSchema);
     let fRef = null;
     return (
-      <Grid container centered className="addItem">
+      <Grid container centered className="addItem" id='addClass-page'>
         <Grid.Column>
           <Header as="h2" textAlign="center" inverted>Add Class Review</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
