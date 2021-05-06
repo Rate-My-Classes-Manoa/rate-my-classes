@@ -95,16 +95,16 @@ test('Test Class Review page', async (testController) => {
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
-
-test('Test Professor Review page', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.isLoggedIn(testController, credentials.username);
-  await professorPage.isReviewPage(testController, credentials.username);
-  await professorPage.isDisplayed(testController);
-  await navBar.logout(testController);
-  await signoutPage.isDisplayed(testController);
-});
+//
+// test('Test Professor Review page', async (testController) => {
+//   await navBar.gotoSigninPage(testController);
+//   await signinPage.signin(testController, credentials.username, credentials.password);
+//   await navBar.isLoggedIn(testController, credentials.username);
+//   await professorPage.isReviewPage(testController, credentials.username);
+//   await professorPage.isDisplayed(testController);
+//   await navBar.logout(testController);
+//   await signoutPage.isDisplayed(testController);
+// });
 
 test('Test Add class page', async (testController) => {
   await navBar.gotoSigninPage(testController);
