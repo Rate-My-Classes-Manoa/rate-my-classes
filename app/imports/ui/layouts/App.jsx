@@ -22,6 +22,7 @@ import AddClassReview from '../pages/AddClassReview';
 import AddEvent from '../pages/AddEvent';
 import AddNewClass from '../pages/AddNewClass';
 import AddNewProfessor from '../pages/AddNewProfessor';
+import AddProfessorReview from '../pages/AddProfessorReview';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -41,6 +42,7 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ClassReview}/>
             <ProtectedRoute path="/professor" component={ProfessorReview}/>
             <ProtectedRoute path="/add-class-review" component={AddClassReview}/>
+            <ProtectedRoute path="/add-professor-review" component={AddProfessorReview}/>
             <ProtectedRoute path="/add-class" component={AddNewClass}/>
             <ProtectedRoute path="/add-professor" component={AddNewProfessor}/>
             <ProtectedRoute path="/profile" component={UserProfile}/>

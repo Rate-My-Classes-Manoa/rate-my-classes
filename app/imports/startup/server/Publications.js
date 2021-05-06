@@ -97,6 +97,10 @@ Meteor.publish(ClassReviews.generalPublicationName, function () {
   return ClassReviews.collection.find();
 });
 
+Meteor.publish(ProfessorReviews.generalPublicationName, function () {
+  return ProfessorReviews.collection.find();
+});
+
 Meteor.publish(ClassList.generalPublicationName, function () {
   return ClassList.collection.find();
 });
