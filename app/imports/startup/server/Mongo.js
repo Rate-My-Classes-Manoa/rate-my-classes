@@ -4,6 +4,7 @@ import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
+import { ProfessorList } from '../../api/professorList/ProfessorList';
 import { Events } from '../../api/events/Events';
 import { ClassReviewsForUserpage } from '../../api/classReview/ClassReviewForUserpage';
 
@@ -18,6 +19,11 @@ function addData(data) {
 function addClassList(data) {
   console.log(`  Adding class ${data.class}`);
   ClassList.collection.insert(data);
+}
+
+function addProfessorList(data) {
+  console.log(`  Adding Professor ${data.lastName}`);
+  ProfessorList.collection.insert(data);
 }
 
 function updateTotalClassReviewsCount(className) {
@@ -82,13 +88,73 @@ function addClassReviewsForUserpage(data) {
   ClassReviewsForUserpage.collection.insert(data);
 }
 
+function updateTotalProfReviewsCount(name) {
+  const record = ProfessorList.collection.findOne({ name: name });
+  const totalRating = record.totalRatings + 1;
+  ProfessorList.collection.update(record._id, { $set: { totalRatings: totalRating } });
+}
+
+function updateProfAvgRating(name, stars) {
+  const record = ProfessorList.collection.findOne({ name: name });
+  const totalRatings = record.totalRatings;
+  const avgRating = (record.avgRating + stars) / totalRatings;
+  ProfessorList.collection.update(record._id, { $set: { avgRating: avgRating } });
+}
+
+function updateProfRatingsCount(name, stars) {
+  const record = ProfessorList.collection.findOne({ name: name });
+  const ratings = {
+    1: record['1star'],
+    2: record['2star'],
+    3: record['3star'],
+    4: record['4star'],
+    5: record['5star'],
+  };
+
+  switch (stars) {
+  case 1:
+    ProfessorList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+    updateProfAvgRating(name, stars);
+    break;
+  case 2:
+    ProfessorList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+    updateProfAvgRating(name, stars);
+    break;
+  case 3:
+    ProfessorList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+    updateProfAvgRating(name, stars);
+    break;
+  case 4:
+    ProfessorList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+    updateProfAvgRating(name, stars);
+    break;
+  case 5:
+    ProfessorList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+    updateProfAvgRating(name, stars);
+    break;
+  default:
+  }
+}
+
 function addProfessorReviews(data) {
   console.log(`  Adding review for ${data.professorName} by (${data.owner})`);
   ProfessorReviews.collection.insert(data);
+  if (data.approved === true) {
+    updateTotalProfReviewsCount(data.professorName);
+    updateProfRatingsCount(data.professorName, data.rating);
+  }
 }
 function addEvent(data) {
   console.log(`  Adding: ${data.eventName}`);
   Events.collection.insert(data);
+}
+
+// Initialize the ProfessorListCollection if empty.
+if (ProfessorList.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfessorList) {
+    console.log('Creating default professor list.');
+    Meteor.settings.defaultProfessorList.map(data => addProfessorList(data));
+  }
 }
 
 // Initialize the ClassListCollection if empty.

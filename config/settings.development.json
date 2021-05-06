@@ -69,6 +69,21 @@
     { "createdAt": "Tue Apr 20 2021", "className": "ICS 321", "rating": 4, "review": "Good Class!", "owner": "admin@foo.com", "approved": true }
   ],
 
+  "defaultProfessorList": [
+    { "firstName": "Peter", "lastName": "Sadowski", "name": "Peter Sadowski",
+      "department": "Computer Science",
+      "imageLink": "http://www.ics.hawaii.edu/wp-content/uploads/2018/08/peter-sadowski_300x300.jpg", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    { "firstName": "Phillip", "lastName": "Johnson", "name": "Phillip Johnson",
+      "department": "Computer Science",
+      "imageLink": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/Philip_Johnson1-80x80.jpg", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    { "firstName": "Ravi", "lastName": "Narayan", "name": "Ravi Narayan",
+      "department": "Computer Science",
+      "imageLink": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/Ravi_Narayan-2014-80x80.jpg", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 },
+    { "firstName": "Mahdi", "lastName": "Belcaid", "name": "Mahdi Belcaid",
+      "department": "Computer Science",
+      "imageLink": "http://www.ics.hawaii.edu/wp-content/uploads/2019/02/mahdi.png", "1star": 0, "2star": 0, "3star": 0, "4star": 0, "5star": 0, "totalRatings": 0, "avgRating": 0 }
+  ],
+
   "defaultProfessorReviews": [
     { "createdAt": "Tue Apr 20 2021", "professorName": "Peter Sadowski", "rating": 5, "review": "Awesome Professor!", "owner": "john@foo.com", "approved": false },
     { "createdAt": "Tue Apr 20 2021", "professorName": "Phillip Johnson", "rating": 5, "review": "Great Professor!", "owner": "john@foo.com", "approved": true },

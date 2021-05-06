@@ -5,6 +5,7 @@ import { Profiles } from '../../Profiles/Profiles';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
+import { ProfessorList } from '../../api/professorList/ProfessorList';
 import { Events } from '../../api/events/Events';
 
 // User-level publication.
@@ -98,4 +99,8 @@ Meteor.publish(ClassReviews.generalPublicationName, function () {
 
 Meteor.publish(ClassList.generalPublicationName, function () {
   return ClassList.collection.find();
+});
+
+Meteor.publish(ProfessorList.generalPublicationName, function () {
+  return ProfessorList.collection.find();
 });
