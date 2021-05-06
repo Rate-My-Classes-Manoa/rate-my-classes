@@ -5,31 +5,11 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { _ } from 'meteor/underscore';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ClassList } from '../../api/classList/ClassList';
-import ClassSelection from '../components/ClassSelection';
-
-// const classes = ClassList.collection.
-// console.log(classes);
-
-// Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  className: {
-    type: String,
-    allowedValues: ClassSelection,
-    defaultValue: 'ICS 111',
-  },
-  review: String,
-  rating: {
-    type: Number,
-    allowedValues: [1, 2, 3, 4, 5],
-    defaultValue: 1,
-  },
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class AddClassReview extends React.Component {
@@ -53,6 +33,23 @@ class AddClassReview extends React.Component {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
+    const classes = _.sortBy(_.pluck(this.props.classList, 'class'), function (name) { return name; });
+    // Create a schema to specify the structure of the data to appear in the form.
+    const formSchema = new SimpleSchema({
+      className: {
+        type: String,
+        allowedValues: classes,
+        defaultValue: 'ICS 111',
+      },
+      review: String,
+      rating: {
+        type: Number,
+        allowedValues: [1, 2, 3, 4, 5],
+        defaultValue: 1,
+      },
+    });
+
+    const bridge = new SimpleSchema2Bridge(formSchema);
     let fRef = null;
     return (
       <Grid container centered className="addItem">
