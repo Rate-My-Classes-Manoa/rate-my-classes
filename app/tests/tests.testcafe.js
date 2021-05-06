@@ -11,13 +11,11 @@ import { editUserPage } from './editUser.page';
 import { devTeamPage } from './devTeam.page';
 import { careersPage } from './careers.page';
 import { signupPage } from './signup.page';
-import { adminProfilePage } from './adminProfile.page';
 
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
-const credentialsAdmin = { username: 'admin@foo.com', password: 'changeme' };
 
 /** Info to make a new user */
 const newUser = { firstName: 'First', lastName: 'Last', username: 'test@foo.com', password: 'changeme', bio: 'This is a test.', city: 'Honolulu', state: 'Hawaii', image: 'http://clipart-library.com/data_images/6103.png' };
@@ -53,17 +51,6 @@ test('Test User profile', async (testController) => {
   await userProfilePage.isDisplayed(testController);
   await userProfilePage.isUserProfile(testController, credentials.username);
   await userProfilePage.isDisplayed(testController);
-  await navBar.logout(testController);
-  await signoutPage.isDisplayed(testController);
-});
-
-test.only('Test Admin profile', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
-  await navBar.isLoggedIn(testController, credentialsAdmin.username);
-  await adminProfilePage.isDisplayed(testController);
-  await adminProfilePage.isAdminProfile(testController, credentialsAdmin.username);
-  await adminProfilePage.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
