@@ -5,7 +5,7 @@ import { navBar } from './navbar.component';
 import { userProfilePage } from './userProfile.page';
 import { eventPage } from './event.page';
 import { classReviewPage } from './classReview.page';
-import { professorPage } from './professor.page';
+// import { professorPage } from './professor.page';
 import { addClassPage } from './addClass.page';
 import { editUserPage } from './editUser.page';
 import { devTeamPage } from './devTeam.page';
