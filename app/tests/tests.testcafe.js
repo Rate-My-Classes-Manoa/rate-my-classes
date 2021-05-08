@@ -77,7 +77,7 @@ test('Test Profile edit', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test Events page', async (testController) => {
+test.only('Test Events page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
@@ -86,7 +86,7 @@ test('Test Events page', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test Class Review page', async (testController) => {
+test('Test Class Review page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
