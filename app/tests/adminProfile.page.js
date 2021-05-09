@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class ProfessorPage {
+class AdminProfilePage {
   constructor() {
-    this.pageId = '#profReviewpage';
+    this.pageId = '#AdminProfile-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,11 +13,16 @@ class ProfessorPage {
   }
 
   /** Check that the specified user is currently logged in. */
-  async isReviewPage(testController, username) {
+  async isAdminProfile(testController, username) {
     const loggedInUser = Selector('#navbar-current-user').innerText;
     await testController.expect(loggedInUser).eql(username);
-    await testController.click('#profReview');
+    await testController.click('#userProfile');
   }
+
+//   async checkName(testController) {
+//     // This is first test to be run. Wait 10 seconds to avoid timeouts with GitHub Actions.
+//     await testController.expect(Selector('#user-info-fullName')).eql('John Smith');
+//   }
 }
 
-export const professorPage = new ProfessorPage();
+export const adminProfilePage = new AdminProfilePage();

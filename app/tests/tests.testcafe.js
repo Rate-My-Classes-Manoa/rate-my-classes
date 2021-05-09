@@ -3,19 +3,22 @@ import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { userProfilePage } from './userProfile.page';
+import { adminProfilePage } from './adminProfile.page';
 import { eventPage } from './event.page';
 import { classReviewPage } from './classReview.page';
-// import { professorPage } from './professor.page';
+import { professorPage } from './professor.page';
 import { addClassPage } from './addClass.page';
 import { editUserPage } from './editUser.page';
 import { devTeamPage } from './devTeam.page';
 import { careersPage } from './careers.page';
 import { signupPage } from './signup.page';
+import { addEventsPage } from './addEvents.page';
 
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
+const credentialsAdmin = { username: 'admin@foo.com', password: 'changeme' };
 
 /** Info to make a new user */
 const newUser = { firstName: 'First', lastName: 'Last', username: 'test@foo.com', password: 'changeme', bio: 'This is a test.', city: 'Honolulu', state: 'Hawaii', image: 'http://clipart-library.com/data_images/6103.png' };
@@ -95,16 +98,16 @@ test('Test Class Review page', async (testController) => {
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
-//
-// test('Test Professor Review page', async (testController) => {
-//   await navBar.gotoSigninPage(testController);
-//   await signinPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.isLoggedIn(testController, credentials.username);
-//   await professorPage.isReviewPage(testController, credentials.username);
-//   await professorPage.isDisplayed(testController);
-//   await navBar.logout(testController);
-//   await signoutPage.isDisplayed(testController);
-// });
+
+test('Test Professor Review page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await professorPage.isReviewPage(testController, credentials.username);
+  await professorPage.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
 
 test('Test Add class page', async (testController) => {
   await navBar.gotoSigninPage(testController);
@@ -124,4 +127,26 @@ test('Test Dev Team page', async (testController) => {
 test('Test Careers page', async (testController) => {
   await careersPage.isCareersPage(testController);
   await careersPage.isDisplayed(testController);
+});
+
+
+test('Test Admin profile', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+  await navBar.isLoggedIn(testController, credentialsAdmin.username);
+  await adminProfilePage.isDisplayed(testController);
+  await adminProfilePage.isAdminProfile(testController, credentialsAdmin.username);
+  await adminProfilePage.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test('Test Add Events Page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+  await navBar.isLoggedIn(testController, credentialsAdmin.username);
+  await addEventsPage.isAddEventsPage(testController, credentialsAdmin.username);
+  await addEventsPage.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
 });

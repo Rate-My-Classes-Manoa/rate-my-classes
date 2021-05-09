@@ -55,7 +55,7 @@ class ProfessorReview extends React.Component {
 
     return (
       <Container>
-        <div id={'review'} >
+        <div id={'profReviewpage'} >
           <Header as="h3" textAlign="center">{searchTerm}</Header>
           <Header as="h3" textAlign="center">{description}</Header>
           <Header as="h3" textAlign="center">
