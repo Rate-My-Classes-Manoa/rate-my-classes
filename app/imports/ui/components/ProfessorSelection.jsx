@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 class ClassSelection extends React.Component {
   render() {
     return (
-      <option value={this.props.professor.name}>{this.props.professor.name}</option>
+      <option value={this.props.professor.name}>{this.props.professor.lastName}, {this.props.professor.firstName}</option>
     );
   }
 }

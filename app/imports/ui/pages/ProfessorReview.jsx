@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Table, Rating } from 'semantic-ui-react';
+import { Container, Header, Loader, Table, Rating, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -8,12 +8,15 @@ import ProfessorItem from '../components/ProfessorItem';
 import { ProfessorList } from '../../api/professorList/ProfessorList';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
 import ProfessorSelection from '../components/ProfessorSelection';
+
 // eslint-disable-next-line no-undef
-const searchTerm = localStorage.getItem('searchTerm');
+const searchTermProf = localStorage.getItem('searchTermProf');
 // eslint-disable-next-line no-undef
-const description = localStorage.getItem('description');
+const descriptionProf = localStorage.getItem('descriptionProf');
 // eslint-disable-next-line no-undef
-const rating = localStorage.getItem('rating');
+const ratingProf = localStorage.getItem('ratingProf');
+// eslint-disable-next-line no-undef
+const imageLink = localStorage.getItem('imageLink');
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ProfessorReview extends React.Component {
@@ -21,19 +24,21 @@ class ProfessorReview extends React.Component {
     // eslint-disable-next-line no-console
     console.log(e.target.value);
     // eslint-disable-next-line no-undef
-    localStorage.setItem('searchTerm', e.target.value);
+    localStorage.setItem('searchTermProf', e.target.value);
     const record = ProfessorList.collection.findOne({ name: e.target.value });
     // eslint-disable-next-line no-undef
-    localStorage.setItem('description', record.department);
+    localStorage.setItem('descriptionProf', record.department);
     // eslint-disable-next-line no-undef
-    localStorage.setItem('rating', record.avgRating);
+    localStorage.setItem('ratingProf', record.avgRating);
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('imageLink', record.imageLink);
     // eslint-disable-next-line no-undef
     window.location.reload();
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
-    const professors = _.sortBy(this.props.professorList, 'name');
+    const professors = _.sortBy(this.props.professorList, 'lastName');
     return (
       <Container>
         <Header as="h2" textAlign="center">Professor Reviews</Header>
@@ -56,10 +61,11 @@ class ProfessorReview extends React.Component {
     return (
       <Container>
         <div id={'profReviewpage'} >
-          <Header as="h3" textAlign="center">{searchTerm}</Header>
-          <Header as="h3" textAlign="center">{description}</Header>
+          <Image centered src={imageLink} size='tiny' circular/>
+          <Header as="h3" textAlign="center">{searchTermProf}</Header>
+          <Header as="h3" textAlign="center">{descriptionProf}</Header>
           <Header as="h3" textAlign="center">
-            <Rating icon={'star'} defaultRating={Math.floor(rating)} maxRating={5} disabled/>
+            <Rating icon={'star'} defaultRating={Math.floor(ratingProf)} maxRating={5} disabled/>
           </Header><br/>
           <Table basic={'very'}>
             <Table.Header>
@@ -98,7 +104,7 @@ export default withTracker(() => {
   const reviewsReady = reviewsSubscription.ready();
   const professorListReady = professorListSubscription.ready();
   // Get the ClassReview documents
-  const reviews = ProfessorReviews.collection.find({ professorName: searchTerm, approved: true }).fetch();
+  const reviews = ProfessorReviews.collection.find({ professorName: searchTermProf, approved: true }).fetch();
   const professorList = ProfessorList.collection.find({}).fetch();
   return {
     reviews,
