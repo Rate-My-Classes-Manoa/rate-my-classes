@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Table, Rating } from 'semantic-ui-react';
+import { Container, Header, Loader, Table, Rating, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -15,6 +15,8 @@ const searchTermProf = localStorage.getItem('searchTermProf');
 const descriptionProf = localStorage.getItem('descriptionProf');
 // eslint-disable-next-line no-undef
 const ratingProf = localStorage.getItem('ratingProf');
+// eslint-disable-next-line no-undef
+const imageLink = localStorage.getItem('imageLink');
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ProfessorReview extends React.Component {
@@ -28,6 +30,8 @@ class ProfessorReview extends React.Component {
     localStorage.setItem('descriptionProf', record.department);
     // eslint-disable-next-line no-undef
     localStorage.setItem('ratingProf', record.avgRating);
+    // eslint-disable-next-line no-undef
+    localStorage.setItem('imageLink', record.imageLink);
     // eslint-disable-next-line no-undef
     window.location.reload();
   }
@@ -57,6 +61,7 @@ class ProfessorReview extends React.Component {
     return (
       <Container>
         <div id={'profReviewpage'} >
+          <Image centered src={imageLink} size='tiny' circular/>
           <Header as="h3" textAlign="center">{searchTermProf}</Header>
           <Header as="h3" textAlign="center">{descriptionProf}</Header>
           <Header as="h3" textAlign="center">
