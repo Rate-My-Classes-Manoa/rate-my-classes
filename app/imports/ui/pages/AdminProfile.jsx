@@ -11,6 +11,7 @@ import AdminInfo from '../components/AdminInfo';
 import { ClassReviews } from '../../api/classReview/ClassReview';
 import { ProfessorReviews } from '../../api/professorReview/ProfessorReview';
 import { ClassList } from '../../api/classList/ClassList';
+import { ProfessorList } from '../../api/professorList/ProfessorList';
 
 /** A simple static component to render some text for the AdminProfile page. */
 class AdminProfile extends React.Component {
@@ -78,6 +79,54 @@ class AdminDisplay extends React.Component {
     }
   }
 
+  updateTotalProfReviewsCount(name) {
+    const record = ProfessorList.collection.findOne({ name: name });
+    const totalRating = record.totalRatings + 1;
+    ProfessorList.collection.update(record._id, { $set: { totalRatings: totalRating } });
+  }
+
+  updateProfAvgRating(name, stars) {
+    const record = ProfessorList.collection.findOne({ name: name });
+    const totalRatings = record.totalRatings;
+    const avgRating = (record.avgRating + stars) / totalRatings;
+    ProfessorList.collection.update(record._id, { $set: { avgRating: avgRating } });
+  }
+
+  updateProfRatingsCount(name, stars) {
+    const record = ProfessorList.collection.findOne({ name: name });
+    const ratings = {
+      1: record['1star'],
+      2: record['2star'],
+      3: record['3star'],
+      4: record['4star'],
+      5: record['5star'],
+    };
+
+    switch (stars) {
+    case 1:
+      ProfessorList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
+      this.updateProfAvgRating(name, stars);
+      break;
+    case 2:
+      ProfessorList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
+      this.updateProfAvgRating(name, stars);
+      break;
+    case 3:
+      ProfessorList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
+      this.updateProfAvgRating(name, stars);
+      break;
+    case 4:
+      ProfessorList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
+      this.updateProfAvgRating(name, stars);
+      break;
+    case 5:
+      ProfessorList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
+      this.updateProfAvgRating(name, stars);
+      break;
+    default:
+    }
+  }
+
   // approve the class review
   approvedClassReview(data) {
     const { createdAt, className, rating, review, owner, _id } = data;
@@ -117,6 +166,8 @@ class AdminDisplay extends React.Component {
         icon: 'success',
         button: 'Go',
       })));
+    this.updateTotalProfReviewsCount(professorName);
+    this.updateProfRatingsCount(professorName, rating);
   }
 
   // delete professor review
@@ -255,16 +306,19 @@ export default withTracker(() => {
   const classListSub = Meteor.subscribe(ClassList.generalPublicationName);
   const classReviewsSub = Meteor.subscribe(ClassReviews.adminPublicationName);
   const professorReviewsSub = Meteor.subscribe(ProfessorReviews.adminPublicationName);
+  const professorListSub = Meteor.subscribe(ProfessorList.generalPublicationName);
   // Get the data from collections
   const profiles = Profiles.collection.find({}).fetch();
   const classList = ClassList.collection.find({}).fetch();
   const classReview = ClassReviews.collection.find({}).fetch();
   const professorReview = ProfessorReviews.collection.find({}).fetch();
+  const professorList = ProfessorList.collection.find({}).fetch();
   return {
     profiles,
     classList,
     classReview,
     professorReview,
-    ready: subscription.ready() && classListSub && classReviewsSub.ready() && professorReviewsSub.ready(),
+    professorList,
+    ready: subscription.ready() && classListSub && classReviewsSub.ready() && professorReviewsSub.ready() && professorListSub.ready(),
   };
 })(AdminProfile);
