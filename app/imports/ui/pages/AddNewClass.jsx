@@ -49,7 +49,7 @@ class AddNewClass extends React.Component {
     let fRef = null;
     return (
       <Grid container centered className="addItem">
-        <Grid.Column>
+        <Grid.Column id={'addClass-page'}>
           <Header as="h2" textAlign="center" inverted>Add a Class</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>

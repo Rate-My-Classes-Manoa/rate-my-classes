@@ -45,7 +45,7 @@ class AddNewProfessor extends React.Component {
     let fRef = null;
     return (
       <Grid container centered className="addItem">
-        <Grid.Column>
+        <Grid.Column id='addProfessor-page'>
           <Header as="h2" textAlign="center" inverted>Add a Professor</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>

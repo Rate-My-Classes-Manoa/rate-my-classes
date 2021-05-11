@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class AddClassPage {
+class AddProfessorPage {
   constructor() {
-    this.pageId = '#addClass-page';
+    this.pageId = '#addProfessor-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,11 +13,11 @@ class AddClassPage {
   }
 
   /** Check that the specified user is currently logged in. */
-  async isAddClassPage(testController, username) {
+  async isAddProfessorPage(testController, username) {
     const loggedInUser = Selector('#navbar-current-user').innerText;
     await testController.expect(loggedInUser).eql(username);
-    await testController.click('#addNewClass');
+    await testController.click('#addNewProfessor');
   }
 }
 
-export const addClassPage = new AddClassPage();
+export const addProfessorPage = new AddProfessorPage();
