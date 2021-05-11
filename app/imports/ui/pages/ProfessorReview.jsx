@@ -38,7 +38,7 @@ class ProfessorReview extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
-    const professors = _.sortBy(this.props.professorList, 'name');
+    const professors = _.sortBy(this.props.professorList, 'lastName');
     return (
       <Container>
         <Header as="h2" textAlign="center">Professor Reviews</Header>
