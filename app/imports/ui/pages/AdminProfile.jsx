@@ -38,7 +38,8 @@ class AdminDisplay extends React.Component {
   // update the average rating for the Class List Publication
   updateAvgRating(className) {
     const record = ClassList.collection.findOne({ class: className });
-    const avgRating = record.avgRating / record.totalRatings;
+    const avgRating = (
+      1 * record['1star'] + 2 * record['2star'] + 3 * record['3star'] + 4 * record['4star'] + 5 * record['5star']) / record.totalRatings;
     ClassList.collection.update(record._id, { $set: { avgRating: avgRating } });
   }
 
@@ -86,7 +87,8 @@ class AdminDisplay extends React.Component {
 
   updateProfAvgRating(name) {
     const record = ProfessorList.collection.findOne({ name: name });
-    const avgRating = record.avgRating / record.totalRatings;
+    const avgRating = (
+      1 * record['1star'] + 2 * record['2star'] + 3 * record['3star'] + 4 * record['4star'] + 5 * record['5star']) / record.totalRatings;
     ProfessorList.collection.update(record._id, { $set: { avgRating: avgRating } });
   }
 
