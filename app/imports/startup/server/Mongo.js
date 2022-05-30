@@ -32,10 +32,10 @@ function updateTotalClassReviewsCount(className) {
   ClassList.collection.update(record._id, { $set: { totalRatings: totalRating } });
 }
 
-function updateAvgRating(className, stars) {
+function updateAvgRating(className) {
   const record = ClassList.collection.findOne({ class: className });
-  const totalRatings = record.totalRatings;
-  const avgRating = (record.avgRating + stars) / totalRatings;
+  const avgRating = (
+    1 * record['1star'] + 2 * record['2star'] + 3 * record['3star'] + 4 * record['4star'] + 5 * record['5star']) / record.totalRatings;
   ClassList.collection.update(record._id, { $set: { avgRating: avgRating } });
 }
 
@@ -52,23 +52,23 @@ function updateRatingsCount(className, stars) {
   switch (stars) {
   case 1:
     ClassList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
-    updateAvgRating(className, stars);
+    updateAvgRating(className);
     break;
   case 2:
     ClassList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
-    updateAvgRating(className, stars);
+    updateAvgRating(className);
     break;
   case 3:
     ClassList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
-    updateAvgRating(className, stars);
+    updateAvgRating(className);
     break;
   case 4:
     ClassList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
-    updateAvgRating(className, stars);
+    updateAvgRating(className);
     break;
   case 5:
     ClassList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
-    updateAvgRating(className, stars);
+    updateAvgRating(className);
     break;
   default:
   }
@@ -94,10 +94,10 @@ function updateTotalProfReviewsCount(name) {
   ProfessorList.collection.update(record._id, { $set: { totalRatings: totalRating } });
 }
 
-function updateProfAvgRating(name, stars) {
+function updateProfAvgRating(name) {
   const record = ProfessorList.collection.findOne({ name: name });
-  const totalRatings = record.totalRatings;
-  const avgRating = (record.avgRating + stars) / totalRatings;
+  const avgRating = (
+    1 * record['1star'] + 2 * record['2star'] + 3 * record['3star'] + 4 * record['4star'] + 5 * record['5star']) / record.totalRatings;
   ProfessorList.collection.update(record._id, { $set: { avgRating: avgRating } });
 }
 
@@ -114,23 +114,23 @@ function updateProfRatingsCount(name, stars) {
   switch (stars) {
   case 1:
     ProfessorList.collection.update(record._id, { $set: { '1star': ratings[1] + 1 } });
-    updateProfAvgRating(name, stars);
+    updateProfAvgRating(name);
     break;
   case 2:
     ProfessorList.collection.update(record._id, { $set: { '2star': ratings[2] + 1 } });
-    updateProfAvgRating(name, stars);
+    updateProfAvgRating(name);
     break;
   case 3:
     ProfessorList.collection.update(record._id, { $set: { '3star': ratings[3] + 1 } });
-    updateProfAvgRating(name, stars);
+    updateProfAvgRating(name);
     break;
   case 4:
     ProfessorList.collection.update(record._id, { $set: { '4star': ratings[4] + 1 } });
-    updateProfAvgRating(name, stars);
+    updateProfAvgRating(name);
     break;
   case 5:
     ProfessorList.collection.update(record._id, { $set: { '5star': ratings[5] + 1 } });
-    updateProfAvgRating(name, stars);
+    updateProfAvgRating(name);
     break;
   default:
   }
