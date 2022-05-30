@@ -15,7 +15,7 @@ class AdminInfo extends React.Component {
             src={imageLink}
             wrapped circular ui={false}/>
           <Card.Content>
-            <Card.Header color='red' id="admin-info-fullName">{firstName} {lastName}</Card.Header>
+            <Card.Header color='red' id="admin-info-fullName">{firstName}|  {lastName}</Card.Header>
             <Card.Meta>
               <span>{owner}</span>
             </Card.Meta>
